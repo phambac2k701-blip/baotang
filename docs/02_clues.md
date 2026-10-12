@@ -1,6 +1,6 @@
 # Ảnh giấy và vật phẩm của bảo tàng
 
-Tài liệu clues · Thiết kế phiên bản 2 · 12 tháng 10 năm 2026
+Tài liệu clues · Thiết kế phiên bản 3 · 12 tháng 10 năm 2026
 
 Danh mục này mô tả nội dung nhìn thấy, chữ in, mặt sau, khung và cách thu thập của từng nguồn thông tin. Những chi tiết có đáp án phải được đưa vào asset, không chỉ nằm trong lời mô tả thiết kế. Mã nguồn là căn cứ chung cho flow, kiến trúc, âm thanh và event.
 
@@ -8,10 +8,10 @@ Danh mục này mô tả nội dung nhìn thấy, chữ in, mặt sau, khung và
 
 | Mục balo | Nội dung | Hành vi |
 | --- | --- | --- |
-| Ảnh thu thập | F01 đến F06 | Xem trước sau, phóng to, đối chiếu; F01 đến F04 bắt buộc |
-| Giấy | I00 đến I07 | Xem trước sau, phóng to, bản chép chữ; I00 đến I04 bắt buộc |
+| Ảnh thu thập | F01 đến F08 | Xem trước sau, phóng to, đối chiếu; F01 đến F04 bắt buộc |
+| Giấy | I00 đến I12 | Xem trước sau, phóng to, bản chép chữ; I00 đến I04 và I12 bắt buộc cho hồ sơ cuối |
 | Vật phẩm | O01 đến O05 | Xoay bản xem, đọc nhãn, dùng tại điểm cố định |
-| Sổ manh mối | W01 đến W05 và quan sát D01 đến D03 | Lưu bản xem được biên soạn sẵn và ghi chú; đồ trên tường vẫn ở nguyên chỗ |
+| Sổ manh mối | W01 đến W05, W07 W08 và quan sát D01 đến D04 | Lưu bản xem được biên soạn sẵn và ghi chú; đồ trên tường vẫn ở nguyên chỗ |
 | Camera | Ảnh do người chơi chụp | Album cá nhân có thời điểm và gian chụp; độc lập với ảnh F |
 
 W06 và các nét nhiễu chỉ là trang trí, không tạo thẻ nguồn. Nếu người chơi chụp chúng, chúng xuất hiện trong Camera như mọi ảnh cá nhân khác. Balo không giới hạn số lượng giấy, ảnh hoặc dấu của đường chính. Đồ đã nhặt không được ném ra và không bị dùng mất.
@@ -40,8 +40,9 @@ W06 và các nét nhiễu chỉ là trang trí, không tạo thẻ nguồn. Nế
 | F04 | Ảnh nhặt | Sau bảng R05 | Mặt cắt tầng hai và lối dưới giường |
 | I04 | Giấy nhặt | Sau bảng R05 | Cách mở hộp và lối kỹ thuật |
 | O03 | Dấu nhặt | Sau bảng R05 | Dấu hồ sơ tầng |
+| I12 | Giấy nhặt | Khay cửa R03 sau E08 | Phiếu gốc kiểm chứng dòng chén bị sửa |
 
-O05 là chìa khóa lấy được sau 18 nguồn trên và ba kết luận đúng. Mọi nguồn tùy chọn đều được ghi rõ trong phần riêng. Hệ thống gợi ý dùng tên nguồn thân thiện với người chơi, không hiện mã nội bộ F hay I trên HUD.
+O05 là chìa khóa lấy được sau 19 nguồn trên và ba kết luận đúng. Mọi nguồn tùy chọn đều được ghi rõ trong phần riêng. Hệ thống gợi ý dùng tên nguồn thân thiện với người chơi, không hiện mã nội bộ F hay I trên HUD.
 
 ## 3 Ảnh có thể nhặt
 
@@ -67,7 +68,7 @@ F03 bắt buộc nhặt trong B2 tại R04, cùng I03 và O02. Ảnh màu đã b
 
 Mặt trước cho thấy thùng gỗ đang mở đặt dưới biển “KHO PHỤC CHẾ”. Bên trong có chén, lá và chuông, đặt trên vải xám. Ba thẻ dày buộc cạnh từng vật ghi rõ B08, B17, B23. Một cửa kỹ thuật và xe đẩy đứng ở hậu cảnh; không cần dựng chúng thành khu gameplay hoặc cho người chơi đẩy xe.
 
-Viền dưới viết “Bàn giao bộ hiện vật sau phục chế”. Mặt sau có chữ “Đồ đi qua kho trước khi chuyển vào tuyến vận chuyển.” Không ghi rằng hiện vật đang trưng bày là bản sao; người chơi phải đọc I03 và so mã R dưới các vật thật. Ảnh chứng minh tuyến KHO PHỤC CHẾ và việc các bản gốc đã được chuyển đi.
+Viền dưới viết “Bàn giao bộ hiện vật sau phục chế”. Mặt sau có chữ “Đồ đi qua kho trước khi chuyển vào tuyến vận chuyển.” Chén trong ảnh có vết sứt chân trùng F07, bổ sung căn cứ hình ảnh để xác thực thẻ B08. Không ghi rằng hiện vật đang trưng bày là bản sao; người chơi phải đọc I03 và so mã R dưới các vật thật. Ảnh chứng minh tuyến KHO PHỤC CHẾ và việc các bản gốc đã được chuyển đi.
 
 ### F04 Mặt cắt và phòng trực
 
@@ -93,7 +94,7 @@ Viền dưới không có chữ. Mặt sau viết “Để lại đường về 
 
 ### W01 Gia đình bên cửa sổ
 
-W01 bắt buộc xem tại R02. Tranh ngang khoảng gấp đôi chiều cao một khuôn mặt nhân vật, đủ lớn để xem bàn tay từ khoảng tương tác bình thường. Khung gỗ sơn xanh ngọc, đường chỉ vàng mỏng, bốn góc đơn giản. Góc dưới phải sứt một miếng tam giác và lộ gỗ sáng. Khung gắn tường, không nhặt vào balo. Ba đĩa và ngăn thưởng nằm trên một đế cơ cấu riêng ngay dưới khung.
+W01 bắt buộc xem tại R02. Tranh có tỷ lệ ngang 3 trên 2; ba bàn tay đủ lớn để xem rõ từ khoảng tương tác bình thường. Khung gỗ sơn xanh ngọc, đường chỉ vàng mỏng, bốn góc đơn giản. Góc dưới phải sứt một miếng tam giác và lộ gỗ sáng. Khung gắn tường, không nhặt vào balo. Ba đĩa và ngăn thưởng nằm trên một đế cơ cấu riêng ngay dưới khung.
 
 Tranh hiện tại có cùng ba người với F01. Thứ tự trái sang phải giữ nguyên, nhưng mẹ cầm chén, cha cầm chuông, trẻ cầm lá. Tư thế tay và khuôn mặt không thay đổi nên người chơi có thể nhận ra đây là cùng bức tranh. Không thêm một mặt người đột ngột chuyển động làm clue bắt buộc.
 
@@ -163,7 +164,7 @@ I03 bắt buộc nhặt trong B2 ở R04. Dạng hai trang gập nhưng là mộ
 
 Trang đầu viết “MÃ KIỂM KÊ. B = BẢN GỐC. R = BẢN SAO. 08 = CHÉN. 17 = LÁ. 23 = CHUÔNG.” Trang thứ hai viết “B08, B17, B23: chuyển từ xưởng vào kho phục chế, sau đó bàn giao qua tuyến vận chuyển nội bộ. R08, R17, R23: thay vào vị trí trưng bày. Khi kiểm tra, phải đối chiếu mã trên vật với ảnh bàn giao.”
 
-Lề dưới có dòng “Dấu đường đi mở bảng kỹ thuật trong gian dịch vụ.” Mặt ngoài sau khi gập có tiêu đề “Bộ ba hiện vật”; không giấu một dòng bắt buộc ở đường gấp. Nguồn này đủ chứng minh hành vi tráo đồ khi kết hợp F03 và đáy D01 đến D03. I03 nói rõ việc thay bản sao, nhưng người chơi vẫn phải xác thực đủ ba mã trên vật đang có.
+Lề dưới có dòng “Dấu đường đi mở bảng kỹ thuật trong gian kỹ thuật.” Mặt ngoài sau khi gập có tiêu đề “Bộ ba hiện vật”; không giấu một dòng bắt buộc ở đường gấp. Nguồn này đủ chứng minh hành vi tráo đồ khi kết hợp F03 và đáy D01 đến D03. I03 nói rõ việc thay bản sao, nhưng người chơi vẫn phải xác thực đủ ba mã trên vật đang có.
 
 ### I04 Phiếu bảo trì phòng trực
 
@@ -197,19 +198,19 @@ Mặt sau ghi “Các nét đo trên tường phục vụ bảo dưỡng.” Gi�
 
 D01 bắt buộc xem, ở đế trái bàn hiện vật R03. Chén có thân tròn, chân thấp, hai đường men xanh lam trên nền kem và một vết xước nhỏ gần vành. Bản trưng bày có lớp màu mô phỏng men; không buộc người chơi phân biệt chất liệu bằng thị giác. Đế cho xoay ngang và nghiêng có giới hạn để đưa đáy ra trước; không nhấc chén đi chỗ khác.
 
-Mặt đáy có tam giác lớn và mã “R08” ngay dưới. Hình và mã cùng nằm trên một mảng sáng, không bị lỗ gá che. Không có chữ trong lòng chén. Chế độ xem giữ hình đáy trong sổ khi cả hai phần đã thấy. Khi rời tương tác, vật giữ góc vừa xoay; có nút đưa về góc trưng bày để dễ đọc lại.
+Mặt đáy có tam giác lớn và mã “R08” ngay dưới. Hình và mã cùng nằm trên một mảng sáng, không bị lỗ gá che. Không có chữ trong lòng chén. Cạnh mảng tam giác và R08 có một tem tròn riêng mang dấu trăng, dùng cho E08. Vùng hình học và tem kiểm định có viền khác nhau để phân biệt hai cơ cấu. Chén hiện tại không có vết sứt chân của bản gốc trong F07. Chế độ xem giữ hình đáy trong sổ khi cả hai phần đã thấy. Khi rời tương tác, vật giữ góc vừa xoay; có nút đưa về góc trưng bày để dễ đọc lại.
 
 ### D02 Lá đồng
 
 D02 bắt buộc xem, ở đế giữa R03. Lá có cuống dài, bề mặt xanh đồng, gân chính nổi và một đầu lá khuyết nhỏ giống F01. Trên đế, lá có thể xoay quanh trục và nghiêng để xem mặt dưới. Không bẻ lá, tháo cuống hoặc mang đi.
 
-Mặt dưới có hình tròn và mã “R17”, đặt ở vùng phẳng gần cuống. Chữ không phụ thuộc vào ánh kim lóe tại một góc duy nhất. Dấu và mã được lưu trong sổ sau khi xem. Phần trên không chứa chữ phụ để khiến người chơi nghĩ phải đọc thêm một mã khác.
+Mặt dưới có hình tròn và mã “R17”, đặt ở vùng phẳng gần cuống. Chữ không phụ thuộc vào ánh kim lóe tại một góc duy nhất. Dấu và mã được lưu trong sổ sau khi xem. Một tem kiểm định riêng gần cuống mang dấu sóng, dùng cho E08. Phần trên không chứa chữ phụ để khiến người chơi nghĩ phải đọc thêm một mã khác.
 
 ### D03 Chuông nhỏ
 
 D03 bắt buộc xem, ở đế phải R03. Chuông vàng đồng, thân loe, tay cầm có vòng nhỏ. Chuông có thể xoay và nghiêng, nhưng không bật mô phỏng con lắc hay cho người chơi rung bằng vật lý tự do. Một nút thử tiếng tùy chọn có thể phát A11, không có tác dụng mở khóa.
 
-Vành đáy có một mảng phẳng mang hình vuông và mã “R23”. Vùng mảng đủ lớn để nhìn rõ khi nghiêng; không bắt nhìn vào trong tối của chuông. Âm chuông là chi tiết để nhận ra event E05, không là nguồn đáp án bắt buộc. Hình vuông và R23 cùng được lưu vào sổ.
+Vành đáy có một mảng phẳng mang hình vuông và mã “R23”. Vùng mảng đủ lớn để nhìn rõ khi nghiêng; không bắt nhìn vào trong tối của chuông. Âm chuông là chi tiết để nhận ra event E05, không là nguồn đáp án bắt buộc. Hình vuông và R23 cùng được lưu vào sổ. Một tem riêng ở cạnh vành mang dấu cây cho E08; không dùng dấu cây thay hình vuông trong P03.
 
 ## 7 Vật phẩm nhặt và sử dụng
 
@@ -231,7 +232,7 @@ O04 nằm trên kệ R01, dễ thấy sau tutorial nhưng không chặn lối. C
 
 Đèn pin vẫn chiếu theo góc nhìn khi chụp. Máy ảnh không có flash ở bản đầu, tránh thêm một nguồn sáng vừa lộ đáp án vừa thay đổi event. Nút chụp bị khóa khi đang đọc giấy, giải cơ cấu hoặc mở album; có phản hồi ngắn “Đóng chế độ xem để chụp”. Người chơi vẫn có thể chụp hiện vật và tường từ chế độ đi lại.
 
-Ảnh được cất trong Camera, không trộn với F01 đến F06. Mỗi ảnh có mã cá nhân C0001 tăng dần, gian chụp, thời gian trong lượt chơi, ảnh nhỏ và ảnh lớn. Người chơi có thể đặt tên ngắn, ghim, xóa hoặc so cạnh một ảnh thu thập. Xóa ảnh không xóa cờ đã xem clue hoặc vật đã nhặt. Thời điểm chụp không là mật mã.
+Ảnh được cất trong Camera, không trộn với F01 đến F08. Mỗi ảnh có mã cá nhân C0001 tăng dần, gian chụp, thời gian trong lượt chơi, ảnh nhỏ và ảnh lớn. Người chơi có thể đặt tên ngắn, ghim, xóa hoặc so cạnh một ảnh thu thập. Xóa ảnh không xóa cờ đã xem clue hoặc vật đã nhặt. Thời điểm chụp không là mật mã.
 
 Mức đề xuất cho bản đầu là 1280 nhân 720 pixel và tối đa 80 ảnh, dùng định dạng nén. Đây là lựa chọn cần đo hiệu năng, không phải yêu cầu khóa cứng. Khi đầy, thông báo và mở album để xóa, không ghi đè ảnh cũ âm thầm. Hết chỗ ảnh không ngăn giải game. Album và metadata được lưu cùng lượt chơi; kiểm tra dung lượng và thao tác xóa sau khi tải lại.
 
@@ -252,3 +253,77 @@ Với giấy, kiểm bản chép chữ trùng texture từng câu, kể cả dò
 Với nguồn cố định, kiểm vào và ra chế độ xem, cờ ghi nhận, lưu tải và khả năng xem lại. Với đồ nhặt, kiểm rời bàn hoặc ngăn sau khi vào balo; không để item vừa nằm trên bàn vừa nhặt vô hạn. Với ba hiện vật, kiểm đáy không bị đế che, góc xoay có thể đưa cả hình và mã vào khung, và ảnh sổ đúng với model.
 
 Không đưa texture nháp có chữ giả vào bản chơi. Nếu chưa hoàn thiện một hình, dùng bản thiết kế có chữ và hình quyết định rõ để thử câu đố trước; chỉ thay mỹ thuật khi đáp án, dấu nhận diện và khả năng đọc vẫn giữ nguyên.
+
+## 11 Nguồn của cụm cửa niêm phong
+
+E08 chỉ xảy ra ở R03. Chín nhóm nguồn gồm F07; D01 đến D04; I08; F08; I09; I10; W07; I11; W08. Tất cả đặt trong phòng, ngoài các ngăn khóa bởi P03. I08 đến I11 và F07 F08 có thể cất vào balo. W07 W08 là nguồn cố định, tự ghi vào sổ sau khi xem. D04 là vật đối chứng của câu đố cửa, không làm bộ ba hiện vật trong hồ sơ chính thành bộ bốn.
+
+Các nguồn này cung cấp thông tin suy luận; cửa chỉ kiểm tổ hợp 3581 và thao tác tay gạt. Không yêu cầu chụp, không kiểm đủ số lần mở tài liệu và không đòi item từ một gian khác. I12 là phần thưởng phải nhặt cho hồ sơ chính; nếu chưa lấy, sổ chỉ rõ phiếu còn trong khay cửa.
+
+### F07 Ảnh khai trương gian kiểm định
+
+Ảnh rời ngang 3 trên 2, giấy màu mờ, viền trắng ngà, không khung; đặt trên kệ mở R03. Hình thấy bốn bệ chén, lá, mặt nạ, chuông và cánh cửa có bốn vòng số đang dùng. Chén gốc có vết sứt bán nguyệt rõ ở chân. Không đặt vật chắn hoặc bóng phủ vết sứt. Viền in “Khai trương gian kiểm định — 2012”. Mặt sau viết “Cửa và cụm kiểm định được đưa vào sử dụng cùng ngày.” Ảnh cho năm lắp cửa và căn cứ hình ảnh nhận diện chén gốc, không in mã mở.
+
+### F08 Bộ sáu ảnh kiểm định
+
+Một bảng ảnh rời có sáu ảnh in xếp hai hàng ba cột, nền giấy kem cứng, không khung. Mỗi ô có tên hiện vật, mã máy A hoặc B, ngày 14 tháng 9 năm 2016 và giờ rõ. Các ô không đánh số theo thứ tự đúng. Ô chén không sứt chân vẫn có thẻ B08 gắn cạnh vật: thẻ đã bị gắn sai, vì vậy không thể chỉ tin nhãn. Mặt sau viết “Cùng một đêm kiểm định. Giờ in là giờ của từng máy.”
+
+| Ô từ trái sang phải theo hàng | Hình và máy | Giờ in | Chi tiết cần đọc |
+| --- | --- | --- | --- |
+| Trên trái | Chén, A | 21:24 | Không có vết sứt chân; bản sao |
+| Trên giữa | Mặt nạ, B | 21:17 | Chụp sau báo động khi hiệu chỉnh |
+| Trên phải | Lá, B | 21:09 | Mã hiện vật B17 |
+| Dưới trái | Chuông, B | 21:13 | Mã hiện vật B23 |
+| Dưới giữa | Chén, A | 21:19 | Có vết sứt bán nguyệt ở chân |
+| Dưới phải | Mặt nạ, A | 21:23 | Vật đối chứng B31 |
+
+F08 đặt trong ngăn không khóa G35. Chế độ xem cho phóng to từng ô và chuyển sang ô khác; tất cả vẫn là một item. Giữ nét vết sứt và thời gian ở mức xem thông thường, không dựa vào một pixel hay trí nhớ ảnh chớp.
+
+### D04 Mặt nạ đối chứng
+
+Mặt nạ gỗ màu kem đỏ trên đế phụ R03, chỉ xoay tại chỗ. Mặt sau có tem dấu sao và mã B31. Nó là vật đối chứng, không nằm trong bộ ba bản sao cần xác nhận ở P05. Không có số mở cửa trên mặt trước. Tem trăng của chén, sóng của lá, sao của mặt nạ và cây của chuông thuộc hệ kiểm định, được W08 đổi thành số. D04 có thể quay nhẹ ngoài tầm nhìn trong E08; tem và trạng thái đã quan sát không đổi.
+
+### I08 Phiếu sửa khóa
+
+Giấy ngang màu xám kem trong ngăn G35 không khóa, không khung. Mặt trước ghi “Khóa giữ bảng quy đổi dấu của ngày lắp. Trước niêm phong, người trực đặt tổ hợp theo lần kiểm định cuối của bản gốc. Đổi nhãn trưng bày không cập nhật bảng quy đổi. Xác định năm lắp bằng ảnh khai trương.” Mặt sau ghi “Cửa tự cài khi đóng mạnh. Bốn vòng số và tay gạt mở từ bên trong, đồng thời thu chốt tự cài về chế độ mở thường.” Không ghi năm 2012 hoặc 3581 trực tiếp.
+
+### I09 Phiếu bảo dưỡng hai máy ảnh
+
+Giấy dọc màu trắng ngà trên bàn R03, không khung. Nội dung: “Ngày 14 tháng 9 năm 2016. Máy A chạy nhanh 7 phút. Máy B chạy chậm 5 phút. Giờ của hai máy chưa được chỉnh trong đêm kiểm định.” Mặt sau có hai ví dụ thao tác không dùng giờ trong F08: “A in 20:07 thì giờ thật là 20:00. B in 19:55 thì giờ thật là 20:00.” Ví dụ làm quy tắc rõ nhưng người chơi vẫn phải xử lý sáu ảnh.
+
+### I10 Biên bản bàn giao đã sửa
+
+Giấy dọc vàng nhạt dưới kẹp bàn R03, không khung. Nội dung: “Ngày 14 tháng 9 năm 2016. Kiểm định cuối trước báo động. B08 chén — 21:17. B17 lá — 21:14. B31 mặt nạ — 21:16. B23 chuông — 21:18. Cả bốn là bản gốc.” Cuối giấy ký “H.”; không tự tô đỏ dòng sai. Mặt sau trống. Dòng chén được kiểm chứng bằng F07 F08 và sau đó I12. Biên bản là lời khai không đáng tin hoàn toàn, không phải giấy ngẫu nhiên chứa một mã giả để đánh lừa vô cớ.
+
+### I11 Nhật ký báo động
+
+Giấy nhỏ dọc trong ngăn mở gần kệ G37, không khung. Nội dung: “Ngày 14 tháng 9 năm 2016. Chuông báo động bắt đầu lúc 21:20 theo giờ chuẩn. Các ảnh sau thời điểm này thuộc lượt kiểm tra bổ sung.” Mặt sau ghi “Không trộn lượt bổ sung với danh sách kiểm định cuối trước báo động.” Giấy luôn tiếp cận được; vật rơi trong event chỉ gợi chú ý, không sinh ra hay che khóa giấy.
+
+### I12 Phiếu vận chuyển gốc
+
+Giấy dọc màu kem trong khay G62, chỉ lấy sau khi cửa nhận 3581. Mặt trước ghi “Ngày 14 tháng 9 năm 2016. B08 chén gốc — kiểm định 21:12. B17 lá — 21:14. B31 mặt nạ đối chứng — 21:16. B23 chuông — 21:18. Bộ ba B08 B17 B23 đi qua kho phục chế vào tuyến vận chuyển nội bộ; B31 ở lại gian kiểm định.” Mặt sau ghi “Bản lưu trước khi sửa biên bản bàn giao.” Dấu xác nhận và chữ vẫn rõ; không đưa đáp án hộp cuối, tầng hai hoặc giường vào giấy này.
+
+I12 nối cụm cửa với vụ tráo hiện vật và là nguồn thứ 19 của hồ sơ chính. F03, I03 và các mã R vẫn cần để xác nhận ba món đang trưng bày. Không yêu cầu người chơi làm lại phép chỉnh giờ trong các gian còn lại.
+
+### W07 Quy trình khôi phục trên cửa
+
+Bảng kim loại cố định trên mặt trong G60, nền men kem, chữ đen, không kính và không khung rời. Chữ đầy đủ: “Khôi phục danh sách kiểm định cuối cùng trước báo động. Dùng ảnh của bản gốc. Với mỗi hiện vật, lấy lượt cuối trước báo động theo giờ chuẩn. Xếp các hiện vật theo giờ đó. Đổi dấu kiểm định mặt dưới sang số theo chuẩn lắp đặt. Đặt bốn vòng rồi gạt chốt.” Cả bảng đọc được khi cửa đóng hoặc đã mở. Mặt sau không truy cập. Không dùng chữ chìm hoặc đèn UV.
+
+### W08 Bảng đổi dấu kiểm định
+
+Bảng giấy cố định trong khung gỗ mỏng màu xám tại R03, không kính. Tiêu đề “DẤU KIỂM ĐỊNH”. Bảng có hàng trăng, sóng, sao, cây và hai cột ghi 2012, 2016. Các dấu vẽ cùng thiết kế với tem mặt dưới hiện vật. Mặt sau không xem được và không có clue khác.
+
+| Dấu | Chuẩn 2012 | Chuẩn 2016 |
+| --- | --- | --- |
+| Trăng | 3 | 6 |
+| Sóng | 5 | 2 |
+| Sao | 8 | 7 |
+| Cây | 1 | 4 |
+
+Nguồn không tô sẵn cột đúng. Người chơi cần I08 và F07 để chọn 2012. Tất cả dấu có tên chữ để không phụ thuộc vào màu. Những số này chỉ thuộc cửa R03, không dùng lại cho ba đĩa P03 hoặc hộp chìa khóa.
+
+## 12 Camera trong các event
+
+E10 dùng B05 đã hiện diện thật trong hốc kính hành lang trước khi người chơi chụp. Ảnh Camera lưu đúng frame được chụp, không dán một người giả vào ảnh sau đó. B05 chỉ biến mất khi hốc ngoài tầm nhìn và không còn job chụp. Nếu người chơi giữ nhìn, bóng vẫn ở đó; không ép chớp đèn để che việc đổi trạng thái. Ảnh cá nhân này không là nguồn thứ 20 hoặc điều kiện của một kết thúc khác.
+
+E04 và E08 cũng cho chụp chim hoặc mặt nạ nếu chúng đang thấy. Ảnh giấy và tranh làm bằng chứng không đổi nội dung do scare. Chỉ pose của đối tượng trình diễn, nguồn âm hoặc đồ trang trí có thể đổi theo trạng thái event đã định nghĩa.

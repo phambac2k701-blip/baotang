@@ -1,6 +1,6 @@
 # Âm thanh và ánh sáng trong bảo tàng
 
-Tài liệu âm thanh và ánh sáng · Thiết kế phiên bản 2 · 12 tháng 10 năm 2026
+Tài liệu âm thanh và ánh sáng · Thiết kế phiên bản 3 · 12 tháng 10 năm 2026
 
 Âm thanh giúp nhận biết vật liệu, khoảng cách và thay đổi ở gian khác. Ánh sáng giữ bảo tàng tối và bất an nhưng cho phép đọc đủ thông tin. Hai hệ thống cùng theo trạng thái event, không tự tạo một chuỗi chớp hoặc tiếng giật độc lập làm mất nhịp suy luận.
 
@@ -21,7 +21,7 @@ Mỗi gian có một nền riêng nhưng nhỏ. R00 nghe mưa xa, gỗ co và h�
 | A03 | Gió và ống thông khí | R01 R05 | Nguồn cố định, nghe gần mạnh hơn |
 | A04 | Chốt đúng và chốt không ăn | Các đĩa, ngăn, hộp | Phân biệt giải đúng với sai |
 | A05 | Kim loại nhả chốt nhỏ | G36 R03 | Hoàn tất hồ sơ hiện vật |
-| A06 | Lon chạm kệ, rơi, lăn ngắn | G14 và sàn R03 | Dẫn người chơi tới nguồn E02 |
+| A06 | Kim loại chạm kệ, rơi, lăn ngắn | G14 G69 và sàn R03 | E02 hoặc nhịp hộp rơi của E08 |
 | A07 | Gỗ khung tranh rung | W01 R02 | E03; không thay đổi clue |
 | A08 | Móng chim và cánh khẽ | Hốc B01 R02 | Dấu báo E04 |
 | A09 | Cánh bật và tiếng chim ngắn | B02 R02 | Cao trào E04, ngắn và có nguồn |
@@ -31,7 +31,15 @@ Mỗi gian có một nền riêng nhưng nhỏ. R00 nghe mưa xa, gỗ co và h�
 | A13 | Hơi thở, ù tai, nhịp hồi phục | Gần góc nhìn | Sau scare hoặc ngất |
 | A14 | Giấy, ảnh, dấu và nút máy ảnh | Đồ đang tương tác | Phân biệt vật phẩm và thao tác |
 | A15 | Bản lề và chốt giường | G01 R00 | Open và lối xuống được mở |
-| A16 | Rung kính xa và một tiếng gõ | Ô kính R01 phía gần R04 | Event nhặt ảnh E07 |
+| A16 | Kính rung gõ hoặc cọ nhẹ | Ô kính R01 và hốc G68 | E07 hoặc báo hiệu E10 |
+| A17 | Cửa va khung và chốt cài | G60 G61 R03 | Mở đầu E08, khớp điểm tiếp xúc |
+| A18 | Ba tiếng gõ ngoài cửa | Mặt ngoài G60 | E08, chỉ sau thử tay nắm đầu |
+| A19 | Bước chân tiến gần rồi dừng | Ngoài cửa R03 | Nhịp căng E08, không phát trong tai |
+| A20 | Bản ghi và tiếng máy | G63 R04 | E11, Play Stop có trạng thái |
+| A21 | Câu cuối ở ghế trống | Phía sau ghế R04 | E11, cùng giọng với bản ghi |
+| A22 | Nhịp gõ truyền qua ống | Các điểm R01 R04 R05 | E09, mỗi lần chỉ một nguồn |
+| A23 | Cơ đồng hồ cũ tích rồi dừng | G66 R01 | E16, nguồn trang trí có nhãn hỏng |
+| A24 | Bút chì lăn và chạm gỗ | G65 R02 | E14, âm gỗ nhẹ, không tiếng lon |
 
 A11 có âm sắc gần D03 nhưng nghe xa và mờ qua tường. Nếu có nút thử tiếng D03, dùng một biến thể cận của cùng nguồn âm. Không dùng sự giống nhau này làm mật mã bắt buộc. A04 có tiếng ăn chốt thấp chắc và tiếng thử sai ngắn khô; không dùng một tiếng giống hệt cho cả hai.
 
@@ -49,7 +57,7 @@ Người chơi dừng lại thì tiếng bước dừng, không tiếp tục loo
 
 Đặt ưu tiên cho thao tác người chơi và thông tin. Khi có âm định hướng như A06, giảm nền giông vừa đủ nghe nguồn và giữ hướng phát. Khi đọc một giấy, âm nền giữ ổn định và các cao trào đang chờ được hoãn. Khi giải chốt, A04 nổi rõ; không phủ sấm lên đúng thời điểm người chơi cần biết đã giải đúng chưa.
 
-Một cao trào dùng ít nguồn cùng lúc: âm báo, âm chính và âm hồi phục. E06 dùng A11 trước, A10 cho sấm, A12 cho cú đánh, rồi A13. Không phát đồng thời chim, lon rơi, khung rung và nhạc lớn. Các event khác được khóa tạm bởi đạo diễn nhịp trong tài liệu event.
+Sáu cụm lớn không đồng nghĩa sáu lần bật âm cực lớn. E09 thiên về nghe nguồn, E10 về bằng chứng ảnh và E11 về thay đổi vị trí giọng. Đặt trần ba cao trào mạnh của E08 E04 E06; những cụm khác dùng mức thấp hoặc vừa. Một cao trào dùng ít nguồn cùng lúc: âm báo, âm chính và âm hồi phục. E06 dùng A11 trước, A10 cho sấm, A12 cho cú đánh, rồi A13. Không phát đồng thời chim, lon rơi, khung rung và nhạc lớn. Các event khác được khóa tạm bởi đạo diễn nhịp trong tài liệu event.
 
 Mức scare phải được nghe thử trên tai nghe và loa thường. Cảm giác giật đến từ tương phản, thời điểm và khoảng cách gần, không chỉ tăng âm lượng. Có thanh chỉnh âm nền, âm tương tác và cường độ scare; giảm scare vẫn giữ tiếng chốt, tiếng giấy và nguồn định hướng. Kiểm không clip hoặc làm mất hoàn toàn tiếng bước sau khi giảm âm rồi khôi phục.
 
@@ -110,3 +118,15 @@ R00 và bàn đọc R04 là các vị trí ít biến động. Sau mỗi cao tr�
 Kiểm từng âm có nguồn và kết quả phù hợp. Đi qua cửa, góc gấp và gian khác để nghe khoảng cách. Chơi với âm lượng thấp, không âm và phụ đề để kiểm đường chính vẫn rõ. Kiểm L04 ở các gian không có cửa sổ; ánh sét không được phát sáng xuyên tường.
 
 Kiểm đèn ở vùng chữ nhỏ nhất, đáy đồ vật, khung có kính, ảnh trong balo và nắp giường mở. Kiểm tải game giữa chớp, blackout và đoạn tỉnh lại để ánh sáng không mắc kẹt. Cuối cùng xem một lượt có Camera: ảnh chụp phải phản ánh ánh sáng thực lúc chụp, không lưu HUD và không vô tình tạo flash mới.
+
+## 10 Phối âm sáng cho ba cụm bổ sung
+
+E08: A17 phát khi cánh G60 chạm khung, tiếng chốt đến ngay sau đó. L01 chỉ giảm nhẹ khoảng 0,25 giây rồi đủ đọc; không làm căn phòng tối liên tục trong câu đố. A18 phát ngoài mặt cửa sau lần thử tay nắm đầu. A19 được xếp lịch sau khi người chơi đối chiếu F07 F08 I09 rồi đóng giao diện; không kiểm giả thuyết đúng sai. Bóng dưới khe là hiệu ứng môi trường, không là một NPC phải dựng đi bộ. Khi đọc F08 I09, nền ổn định và không có sét lớn.
+
+E09: A22 đi qua ba điểm âm biên soạn sẵn. Nguồn kế tiếp chỉ phát khi người chơi đến vùng nguồn trước và đang đi lại. Tường và góc gấp lọc âm theo đường truyền; không cho một tiếng gõ nhảy thẳng vào tai. Kết thúc ở G64 phát một nhịp trầm thấp rồi trở về A03, giúp người nghe nhận ra đường ống hướng xuống. Có phụ đề chỉ gian nguồn, không ghi đáp án. Không tắt đèn, không kéo camera và không khóa lối.
+
+E10: có một tiếng cọ kính nhỏ mời nhìn hốc G68, dùng biến thể A16 tại hốc. Khi chụp, A14 phát tiếng màn trập; ảnh dùng ánh sáng thực L01 L02. Không thêm flash hoặc lớp người vào file ảnh. Giảm nền rất nhẹ lúc xem lại ảnh rồi trả về khi đóng. B05 không biến mất trong tầm nhìn chỉ vì đèn yếu hoặc vì album đang mở.
+
+E11: A20 bắt đầu từ máy G63 với tiếng cơ quay ngắn rồi giọng rõ. Sau khi bản ghi kết thúc hoặc người chơi nhấn Stop ở nhánh hợp lệ, một khoảng yên khoảng hai giây tách nguồn. A21 nói “Mang giấy theo.” từ phía ghế trống bằng cùng giọng, với âm phòng rõ hơn và bớt nhiễu băng. Không đặt giọng này ở mọi nơi hoặc bắt người chơi xoay đúng góc để nghe. L01 giữ sáng; sự bất an đến từ vị trí giọng sau khi máy đã dừng. Kết thúc trả nền bình thường.
+
+Kiểm thêm hủy event và tải giữa A17, A20 A21 hoặc giữa hai nguồn A22. Không lặp tiếng cài cửa nếu cửa đã mở khóa, không để tiếng máy chạy sau Stop và không nối giọng từ máy cũ sang vùng âm khác khi tải. Dữ liệu gốc về giờ, nhãn và mã trên các ảnh giấy luôn giữ nguyên.
