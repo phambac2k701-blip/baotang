@@ -11,9 +11,12 @@ Thiết kế phiên bản 3, ngày 12 tháng 10 năm 2026. Phiên bản này tha
 | Kiến trúc | Các gian, đường nối, đối tượng và animation | [03_kien_truc](docs/03_kien_truc.md) |
 | Âm thanh và ánh sáng | Nguồn âm, chiếu sáng, phối hợp và hồi phục | [04_am_thanh_anh_sang](docs/04_am_thanh_anh_sang.md) |
 | Events | Cửa niêm phong, chim, quay đầu, truy âm, Camera, bản ghi và nhịp nghỉ | [05_events](docs/05_events.md) |
+| Bản dựng thử | Nhà chữ L hai tầng, từng phòng/tường/cửa/prop, vị trí shape, nội dung Xem và balo, chia 17 block | [06_draft_kien_truc_va_items](docs/06_draft_kien_truc_va_items.md) |
 
 Tài liệu dự án dùng định dạng Markdown (.md). Mở từng tài liệu để đọc hoặc tải về. Đọc Flow trước, sau đó Clues. Các tài liệu dùng chung mã phòng R, ảnh F, giấy I, ảnh/bảng tường W, hiện vật D, vật phẩm O, âm A, ánh sáng L và sự kiện E. Không cần tọa độ để đọc bản này.
 
 Thời lượng 120 đến 150 phút là mục tiêu cho lượt chơi đầu, cần kiểm chứng bằng prototype và chơi thử. Tài liệu chưa phải một bản game đã triển khai.
 
 Cửa R03 dùng câu đố nhiều nguồn đã chốt, có đáp án 3581; mọi dữ liệu mở cửa nằm trong R03. I12 là phiếu gốc nối cụm này vào 19 nguồn hồ sơ cuối. Các ảnh và giấy làm bằng chứng không đổi nội dung theo scare.
+
+Để giao AI dựng bản cơ bản, dùng tài liệu 06 theo các lượt A–G. Tài liệu này cụ thể hóa vị trí thử và chép đủ nội dung nguồn; đợt âm thanh, ánh sáng và asset đẹp thực hiện sau. Cơ chế ghép chương trình hiện được đặt thành môđun thử tùy chọn, chưa thay flow chính.

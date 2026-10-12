@@ -2,7 +2,7 @@
 
 Tài liệu kiến trúc · Thiết kế phiên bản 3 · 12 tháng 10 năm 2026
 
-Bảo tàng được chia theo chức năng của câu đố và nhịp khám phá. Tài liệu này xác định từng gian, đường nối, vật thể và chuyển động cần làm; chưa chốt tọa độ, kích thước cuối hay hình dáng cánh giường. Các vị trí được mô tả theo quan hệ như cạnh bảng, trên đế hoặc trong ngăn.
+Bảo tàng được chia theo chức năng của câu đố và nhịp khám phá. Tài liệu này xác định từng gian, đường nối, vật thể và chuyển động cần làm; chưa chốt tọa độ, kích thước cuối hay hình dáng cánh giường. Các vị trí được mô tả theo quan hệ như cạnh bảng, trên đế hoặc trong ngăn. Bản dựng thử có tọa độ, mặt bằng, chi tiết tường/cửa, placeholder và các block giao AI trong [06_draft_kien_truc_va_items](06_draft_kien_truc_va_items.md); các kích thước đó phục vụ prototype, chưa phải kích thước model cuối.
 
 ## 1 Quy mô và đường nối
 
