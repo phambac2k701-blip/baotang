@@ -2,42 +2,36 @@
 
 Game khám phá theo mạch truyện: tỉnh dậy trong phòng trực, tìm hiểu việc tráo hiện vật, thu thập hồ sơ, lấy chìa khóa rồi quay về mở lối dưới giường.
 
-## News — 13/10/2026
+## Nguồn build kiến trúc hiện hành
 
-Đổi hướng kiến trúc sang **bảo tàng ba thùy cong lệch**, hai tầng, khoảng **264 m² tổng diện tích bao sàn**, có dải trưng bày mở quanh giếng trời. Hình bao đã được duyệt; kiến trúc chi tiết bên trong vẫn cần thiết kế và kiểm tra trong Blender.
+AI bắt đầu từ scene Blender mới và dùng hai nguồn:
 
-- Thêm [khung_bao_tang_v1.zip](assets/architecture/khung_bao_tang_v1.zip): mặt bằng, các góc khung, cao độ, tọa độ đường cong và script minh họa.
-- Hướng dẫn chính nằm ở [06 — Cách build bảo tàng từ đầu](docs/06_cach_build_bao_tang.md): tạo scene mới, dựng khung ngoài rồi hoàn thiện bên trong trên cùng mô hình.
-- Xóa tài liệu kiến trúc cũ, bản dựng nhà chữ L và hai SVG mặt bằng cũ khỏi bản hiện tại. Bản cũ vẫn tra được trong lịch sử Git.
-- Phạm vi đang làm: **hoàn thiện kiến trúc thô trong Blender**. Chưa làm vật liệu, props, Meshy, âm thanh/ánh sáng kinh dị hoặc chuyển sang Godot.
+1. **[docs/06_cach_build_bao_tang.md](docs/06_cach_build_bao_tang.md)** — hướng dẫn build toàn bộ từ đầu, prompt, trình tự thiết kế bên trong, kiểm tra và bàn giao.
+2. **[assets/architecture/khung_bao_tang_v1.zip](assets/architecture/khung_bao_tang_v1.zip)** — hình bao, tọa độ đường cong, mặt bằng và kích thước.
 
-Chi tiết cập nhật ở [NEWS.md](NEWS.md).
+Giải nén ZIP vào museum_architecture/source/. Thực hiện phiên 1 dựng khung rồi phiên 2 thiết kế/dựng toàn bộ kiến trúc bên trong trên cùng mô hình. Checkpoint trung gian được tạo trong chính quy trình này.
 
-## Build từ đầu — đọc file 06
+Phạm vi: **kiến trúc thô hoàn chỉnh trong Blender**. Chưa làm vật liệu, texture, props, item, gameplay, Meshy, âm thanh/ánh sáng kinh dị hoặc chuyển sang Godot. Các file gameplay bên dưới là nội dung cho giai đoạn sau, không phải bản vẽ để dựng nhà.
 
-1. Đọc [docs/06_cach_build_bao_tang.md](docs/06_cach_build_bao_tang.md). File này có prompt build toàn bộ từ đầu cho AI.
-2. Giải nén [ZIP kiến trúc](assets/architecture/khung_bao_tang_v1.zip) vào museum_architecture/source/; đọc geometry.json và ba bản vẽ.
-3. Tạo scene Blender mới. Dựng khung ngoài rồi thiết kế/dựng toàn bộ bên trong; checkpoint trung gian được tạo trong chính quy trình này.
-4. Đối chiếu bằng mặt bằng, mặt đứng, mặt cắt và camera ngang mắt trước khi gọi kiến trúc thô là hoàn chỉnh.
+## Trạng thái thiết kế
 
-Không cần model cũ hoặc cuộc trò chuyện trước. NEWS.md là nhật ký; **file 06 cùng ZIP là nguồn thực hiện hiện hành**.
+- Hình bao đã được duyệt: bảo tàng ba thùy cong lệch, hai tầng, dải trưng bày mở quanh giếng trời.
+- Hình bao ngoài khoảng 16,03 × 12,99 m; tổng diện tích bao sàn hai tầng khoảng 264 m², gồm vùng tường/thang và trừ giếng trời.
+- ZIP chứa khung hình học sơ bộ và script minh họa; chưa chứa model Blender đã hoàn thiện.
+- Kiến trúc bên trong cần được thiết kế, dựng và kiểm tra theo file 06, gồm các mặt tường/trần, cách nối gian, cột/vòm, thang và tuyến thoát.
+- Dữ liệu tọa độ và bản vẽ có số đo ưu tiên hơn ảnh concept. Bàn giao phải có mặt bằng, mặt đứng, mặt cắt và góc ngang mắt.
 
-ZIP là khung hình học sơ bộ, **không phải model Blender đã dựng hoặc thiết kế nội thất hoàn chỉnh**. draw_shell.py tạo hình minh họa; AI thực hiện phải dựng mesh có bề dày, ô mở thật, giao vách và thang. Dữ liệu tọa độ và bản vẽ có số đo ưu tiên hơn ảnh concept.
+## Tài liệu gameplay cho giai đoạn sau
 
-## Tài liệu truyện và gameplay
+| File | Nội dung |
+| --- | --- |
+| [idea.md](idea.md) | Ý tưởng và mục tiêu game |
+| [01_flow](docs/01_flow.md) | Mạch truyện, câu đố, điều kiện và ending |
+| [02_clues](docs/02_clues.md) | Nội dung ảnh, giấy, hiện vật, item và Camera |
+| [04_am_thanh_anh_sang](docs/04_am_thanh_anh_sang.md) | Thiết kế âm thanh/ánh sáng |
+| [05_events](docs/05_events.md) | Event lớn/nhỏ và nhịp nghỉ |
+| [07_the_gioi_ngat_va_quy_tac_thong_tin](docs/07_the_gioi_ngat_va_quy_tac_thong_tin.md) | Nhánh thế giới ngất và ngôn ngữ preview |
 
-| Tài liệu | Nội dung | Đọc trên GitHub |
-| --- | --- | --- |
-| Ý tưởng | Mục tiêu, phong cách và cơ chế chính | [idea](idea.md) |
-| Flow | Mạch truyện, đáp án, điều kiện bắt buộc, phát hiện sớm | [01_flow](docs/01_flow.md) |
-| Clues | Từng ảnh, giấy, khung, chữ, item và Camera | [02_clues](docs/02_clues.md) |
-| Âm thanh và ánh sáng | Thiết kế cho giai đoạn sau | [04_am_thanh_anh_sang](docs/04_am_thanh_anh_sang.md) |
-| Events | Câu đố cửa, các cụm scare và nhịp nghỉ | [05_events](docs/05_events.md) |
-| Thế giới ngất và ngôn ngữ | E06 chạy ba làn/cổng/tỉnh/đốm sáng; preview khách quan tách khỏi manh mối | [07_the_gioi_ngat_va_quy_tac_thong_tin](docs/07_the_gioi_ngat_va_quy_tac_thong_tin.md) |
-| Cách build từ đầu | Dựng toàn bộ kiến trúc thô ngoài và trong bằng Blender | [06_cach_build_bao_tang](docs/06_cach_build_bao_tang.md) |
+Các mã R là vùng chức năng của gameplay. Các mã P0/P1/P2/P3 trong ZIP là vùng kiến trúc; không mặc định đồng nhất chúng với mã câu đố. Việc ánh xạ item/event sang vị trí thật thực hiện sau khi kiến trúc bên trong được chốt.
 
-Các mã R trong tài liệu gameplay hiện chỉ là **mã vùng chức năng**, không phải yêu cầu tái dựng mặt bằng cũ. Các mã P0/P1/P2/P3 trong ZIP là mã vùng của phương án kiến trúc mới; chưa đồng nhất chúng với mọi mã P/R trong câu đố. Việc ánh xạ nguồn, item và event sang vị trí thật sẽ làm sau khi kiến trúc bên trong được chốt. Không lấy vị trí hoặc tọa độ nhà cũ để dựng map mới.
-
-Flow và Clues giữ phiên bản nội dung 4, ngày 12/10/2026: sáu cụm event lớn, 12 event nhỏ, chỉ E08 khóa một phòng; cảnh đánh ngất là tùy chọn. Cửa câu đố dùng đáp án 3581, mọi dữ liệu mở cửa nằm trong vùng đó. I12 nối cụm này vào 19 nguồn hồ sơ cuối. Nội dung ảnh/giấy không đổi theo scare.
-
-Preview khi nhấn Xem là mô tả khách quan; chữ và hình thật trong ảnh/giấy là manh mối. Dùng danh mục nguồn và preview trong 02/07 khi triển khai gameplay về sau. Repo hiện là tài liệu thiết kế, chưa chứa scene game hoặc model .blend đã hoàn thiện. Thời lượng 120–150 phút là mục tiêu cần kiểm chứng bằng prototype.
+Preview khi nhấn Xem là mô tả khách quan; chữ và hình trong ảnh/giấy là manh mối. Thời lượng 120–150 phút là mục tiêu cần kiểm chứng bằng prototype. Repo hiện chứa tài liệu và nguồn hình học, chưa chứa model .blend hoặc scene game hoàn chỉnh.

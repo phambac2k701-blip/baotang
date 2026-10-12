@@ -1,6 +1,6 @@
 # Ảnh giấy và vật phẩm của bảo tàng
 
-> Cập nhật kiến trúc 13/10/2026: các mã R dưới đây là vùng chức năng của gameplay, không quyết định mặt bằng hoặc tọa độ nhà. Nguồn dựng hiện hành là ZIP và [kế hoạch kiến trúc thô Blender](06_cach_build_bao_tang.md). Việc ánh xạ item/event sang map mới thực hiện sau khi chốt kiến trúc; hiện chỉ dựng kiến trúc thô, chưa triển khai gameplay.
+> Tài liệu gameplay cho giai đoạn sau. Các mã R dưới đây là vùng chức năng, không quyết định mặt bằng hoặc tọa độ nhà. Khi build kiến trúc, dùng [file 06](06_cach_build_bao_tang.md) và ZIP hình học. Việc ánh xạ item/event sang vị trí thật thực hiện sau khi chốt kiến trúc; hiện chỉ dựng kiến trúc thô.
 
 Tài liệu clues · Thiết kế phiên bản 4 · 12 tháng 10 năm 2026
 
@@ -396,4 +396,4 @@ Dùng bảng dưới làm lời preview; dùng các mục mô tả nguồn trong
 
 Preview không bỏ khả năng người chơi tự thấy chữ trên asset: nhãn R08 nằm đúng trên đáy khi xoay; năm trên ảnh vẫn hiện trên viền. Tách preview chỉ ngăn hệ thống tự diễn giải hoặc đưa lời giải trước khi người chơi quan sát. Khi Xem nguồn phải mở cả mặt hình/giấy, không chỉ hiện một câu preview rồi giấu nguồn.
 
-Các prop chưa thuộc danh mục nguồn phải có preview khách quan khi được thiết kế lại trên map mới. Các ví dụ ngôn ngữ có thể giữ: “Một hộp kim loại có ba hàng nhãn.”; “Bốn vòng số và một tay gạt.”; “Khay nhỏ bên khung cửa.”; “Một hốc trưng bày có kính.”; “Máy đọc thẻ kiểm kê có màn hình và nút điều khiển.” Không suy ra vị trí prop từ bản kiến trúc cũ. Không hiện “môđun dự trữ”, “nguồn thứ 19”, “đáp án 3581”, “prototype” hoặc tên engine trong UI người chơi. Các câu này chỉ thuộc ghi chú developer.
+Các prop chưa thuộc danh mục nguồn phải có preview khách quan khi được thiết kế lại trên map mới. Các ví dụ ngôn ngữ có thể giữ: “Một hộp kim loại có ba hàng nhãn.”; “Bốn vòng số và một tay gạt.”; “Khay nhỏ bên khung cửa.”; “Một hốc trưng bày có kính.”; “Máy đọc thẻ kiểm kê có màn hình và nút điều khiển.” Vị trí prop được chốt ở giai đoạn ánh xạ gameplay. Không hiện “môđun dự trữ”, “nguồn thứ 19”, “đáp án 3581”, “prototype” hoặc tên engine trong UI người chơi. Các câu này chỉ thuộc ghi chú developer.

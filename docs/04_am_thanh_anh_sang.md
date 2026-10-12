@@ -1,6 +1,6 @@
 # Âm thanh và ánh sáng trong bảo tàng
 
-> Cập nhật kiến trúc 13/10/2026: các mã R dưới đây là vùng chức năng của gameplay, không quyết định mặt bằng hoặc tọa độ nhà. Nguồn dựng hiện hành là ZIP và [kế hoạch kiến trúc thô Blender](06_cach_build_bao_tang.md). Việc ánh xạ item/event sang map mới thực hiện sau khi chốt kiến trúc; hiện chỉ dựng kiến trúc thô, chưa triển khai gameplay.
+> Tài liệu gameplay cho giai đoạn sau. Các mã R dưới đây là vùng chức năng, không quyết định mặt bằng hoặc tọa độ nhà. Khi build kiến trúc, dùng [file 06](06_cach_build_bao_tang.md) và ZIP hình học. Việc ánh xạ item/event sang vị trí thật thực hiện sau khi chốt kiến trúc; hiện chỉ dựng kiến trúc thô.
 
 Tài liệu âm thanh và ánh sáng · Thiết kế phiên bản 4 · 12 tháng 10 năm 2026
 

@@ -1,6 +1,6 @@
 # Thế giới khi ngất và quy tắc thông tin cho người chơi
 
-> Cập nhật kiến trúc 13/10/2026: các mã R dưới đây là vùng chức năng của gameplay, không quyết định mặt bằng hoặc tọa độ nhà. Nguồn dựng hiện hành là ZIP và [kế hoạch kiến trúc thô Blender](06_cach_build_bao_tang.md). Việc ánh xạ item/event sang map mới thực hiện sau khi chốt kiến trúc; hiện chỉ dựng kiến trúc thô, chưa triển khai gameplay.
+> Tài liệu gameplay cho giai đoạn sau. Các mã R dưới đây là vùng chức năng, không quyết định mặt bằng hoặc tọa độ nhà. Khi build kiến trúc, dùng [file 06](06_cach_build_bao_tang.md) và ZIP hình học. Việc ánh xạ item/event sang vị trí thật thực hiện sau khi chốt kiến trúc; hiện chỉ dựng kiến trúc thô.
 
 Cập nhật thiết kế ngày 12 tháng 10 năm 2026. File này bổ sung nhánh E06 của bản hiện tại và phân biệt mô tả preview với nội dung manh mối. Kiến trúc nhà dùng ZIP và kế hoạch Blender mới; nguồn thông tin vẫn theo file 02. Scene truy đuổi là công việc gameplay về sau, không thuộc giai đoạn kiến trúc thô hiện tại.
 
@@ -86,7 +86,7 @@ Một lượt sạch mất khoảng 60 giây chạy, cộng chuyển cảnh và 
 
 ## Block 05 Trở lại thực tại và đốm sáng
 
-Qua s=300 khi ở trong khung NG-PORTAL: vô hiệu input chạy/va chạm, dừng chaser, fade theo plane sáng trong khoảng 0,6–1,0 giây. Không tăng sáng toàn màn hình nhiều lần. Ghi DREAM_PORTAL_CROSSED rồi chuyển scene về bảo tàng tại marker E06_WAKE_SAFE trong vùng liên thông R01 của tầng hai. Vị trí và hướng nhìn được đặt sau khi chốt kiến trúc mới; dùng cao độ tầng hai 3,65 m và kiểm tra đường đi. Không dùng tọa độ nhà cũ, không spawn về giường hay về vị trí cú đánh nguy hiểm.
+Qua s=300 khi ở trong khung NG-PORTAL: vô hiệu input chạy/va chạm, dừng chaser, fade theo plane sáng trong khoảng 0,6–1,0 giây. Không tăng sáng toàn màn hình nhiều lần. Ghi DREAM_PORTAL_CROSSED rồi chuyển scene về bảo tàng tại marker E06_WAKE_SAFE trong vùng liên thông R01 của tầng hai. Vị trí và hướng nhìn được đặt sau khi chốt kiến trúc mới; dùng cao độ tầng hai 3,65 m và kiểm tra đường đi. Không spawn về giường hay về vị trí cú đánh nguy hiểm.
 
 Mở mắt bằng một lớp che mí/giảm mờ khoảng 0,8 giây; ưu tiên góc nhìn phía trước trong nhịp này. FX-E06-WISP hiện tại marker E06_WISP phía trước hướng nhìn từ E06_WAKE_SAFE, cao khoảng 1,35 m trên sàn và cùng tông trắng ngà/ấm của cổng. Hai marker phải được kiểm tra góc nhìn và va chạm trên map mới; tọa độ cụ thể chưa chốt. Nó là vật hiển thị thật trong scene bảo tàng, không chỉ hình trong giấc mơ. Giữ hiện khoảng 0,8–1,0 giây sau khi mắt mở, rồi co/fade về 0 trong khoảng 0,4–0,6 giây. Collider tắt; không vật phẩm bên dưới, không cửa hay texture bằng chứng bị đổi.
 
@@ -174,7 +174,7 @@ Dùng bảng dưới và danh mục file 02 làm lời preview; dùng nội dung
 
 Preview không bỏ khả năng người chơi tự thấy chữ trên asset: nhãn R08 nằm đúng trên đáy khi xoay; năm trên ảnh vẫn hiện trên viền. Tách preview chỉ ngăn hệ thống tự diễn giải hoặc đưa lời giải trước khi người chơi quan sát. Khi Xem nguồn phải mở cả mặt hình/giấy, không chỉ hiện một câu preview rồi giấu nguồn.
 
-Các prop chưa thuộc danh mục nguồn phải có preview khách quan khi được thiết kế lại trên map mới. Các ví dụ ngôn ngữ có thể giữ: “Một hộp kim loại có ba hàng nhãn.”; “Bốn vòng số và một tay gạt.”; “Khay nhỏ bên khung cửa.”; “Một hốc trưng bày có kính.”; “Máy đọc thẻ kiểm kê có màn hình và nút điều khiển.” Không suy ra vị trí prop từ bản kiến trúc cũ. Không hiện “môđun dự trữ”, “nguồn thứ 19”, “đáp án 3581”, “prototype” hoặc tên engine trong UI người chơi. Các câu này chỉ thuộc ghi chú developer.
+Các prop chưa thuộc danh mục nguồn phải có preview khách quan khi được thiết kế lại trên map mới. Các ví dụ ngôn ngữ có thể giữ: “Một hộp kim loại có ba hàng nhãn.”; “Bốn vòng số và một tay gạt.”; “Khay nhỏ bên khung cửa.”; “Một hốc trưng bày có kính.”; “Máy đọc thẻ kiểm kê có màn hình và nút điều khiển.” Vị trí prop được chốt ở giai đoạn ánh xạ gameplay. Không hiện “môđun dự trữ”, “nguồn thứ 19”, “đáp án 3581”, “prototype” hoặc tên engine trong UI người chơi. Các câu này chỉ thuộc ghi chú developer.
 
 ## Block 08 Giao AI xây và kiểm tra
 
