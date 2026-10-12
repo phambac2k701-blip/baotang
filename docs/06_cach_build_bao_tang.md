@@ -1,4 +1,4 @@
-# Hoàn thiện kiến trúc thô bảo tàng trong Blender — Implementation Plan
+# 06 — Cách build bảo tàng từ đầu trong Blender
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:executing-plans to implement this plan task-by-task if that skill is installed. If unavailable, follow the tasks natively with Blender MCP/Python; no extra agent or plugin is required. Steps use checkbox (`- [ ]`) syntax for tracking.
 
@@ -8,7 +8,22 @@
 
 **Tech Stack:** Blender, Python `bpy`, Blender MCP. Chưa dùng Meshy, imagegen để dựng hình, texture hoặc Godot trong phạm vi bàn giao này.
 
-**Spec:** `geometry.json`, `README.md`, `01_mat_bang_kich_thuoc.png`, `02_khung_nhieu_goc.png`, `03_cao_do_va_phong.png` trong `khung_bao_tang_v1.zip`. Đây là spec hình bao sơ bộ; Task 3 bổ sung thiết kế kiến trúc bên trong còn thiếu.
+**Spec:** `geometry.json`, `README.md`, `01_mat_bang_kich_thuoc.png`, `02_khung_nhieu_goc.png`, `03_cao_do_va_phong.png` trong [khung_bao_tang_v1.zip](../assets/architecture/khung_bao_tang_v1.zip). Đây là spec hình bao sơ bộ; Task 3 bổ sung thiết kế kiến trúc bên trong còn thiếu.
+
+## Đọc trước khi bắt đầu
+
+Đây là hướng dẫn build gốc cho một AI chưa đọc cuộc trò chuyện. Bắt đầu từ một scene Blender mới, dựng toàn bộ kiến trúc thô từ ngoài vào trong. Không yêu cầu có model cũ, checkpoint cũ hoặc dự án Godot đã chạy. NEWS.md chỉ là nhật ký cập nhật, không phải spec để build.
+
+Nguồn cần đọc:
+
+1. File 06 này: phạm vi, trình tự, kiểm tra và bàn giao.
+2. [assets/architecture/khung_bao_tang_v1.zip](../assets/architecture/khung_bao_tang_v1.zip): tọa độ, bản vẽ và mô tả hình bao.
+
+Giải nén ZIP vào museum_architecture/source/. geometry.json, README.md, ba PNG và draw_shell.py nằm trực tiếp ở thư mục gốc ZIP. Script trong ZIP tạo hình minh họa, không phải model Blender hoàn chỉnh. Không dùng ảnh trên cao thay thế việc thiết kế từng gian bên trong.
+
+**Phiên 1 và phiên 2 là hai chặng trong cùng quy trình.** Khi bắt đầu từ đầu, thực hiện phiên 1 rồi tiếp tục phiên 2; checkpoint phiên 1 do chính lượt build này tạo ra. Có thể chia thành hai phiên làm việc khi cần, nhưng phải mở tiếp cùng model và dùng cùng hệ tọa độ. Không yêu cầu người dùng tự cung cấp checkpoint mà chưa được tạo.
+
+Chỉ khi thiếu công cụ hoặc dữ liệu thực sự ngăn việc tiếp tục mới báo rõ phần chưa thể làm. Không mặc định dừng sau khi dựng vỏ hoặc xuất một ảnh trên cao.
 
 ## Global Constraints
 
@@ -20,7 +35,7 @@
 - Giếng trời có tường bao kín với không gian trưng bày; không tạo ban công nhìn xuống tầng dưới, giữ logic khám phá tầng 2.
 - Sàn tầng 2 có ô xuống bí mật H trong P0; thang công cộng vẫn tồn tại về kiến trúc nhưng cần hình học chặn trong trạng thái gameplay.
 - Chỉ dùng vật liệu trắng mặc định và ánh sáng làm việc trung tính để xem hình khối. Không tạo texture, PBR, props, tranh, đồ nội thất, hiện vật hoặc môi trường kinh dị.
-- Chưa thay đổi gameplay, chưa nhập model vào Godot, chưa xóa scene cũ. Giữ bản cũ và dựng thành phiên bản kiến trúc riêng.
+- Tạo scene Blender mới trong thư mục bàn giao. Chưa làm gameplay hoặc nhập Godot. Nếu workspace có dữ liệu khác, không ghi đè hoặc xóa dữ liệu đó; không giả định có model cũ để tiếp tục.
 - Các ảnh gen là tham chiếu hình khối. Bản vẽ và tọa độ ưu tiên cao hơn ảnh gen khi có khác biệt.
 
 ## Review Focus
@@ -54,12 +69,12 @@ Collection Blender: `ARCH_SHELL`, `ARCH_FLOORS`, `ARCH_INTERIOR`, `ARCH_STAIRS`,
 
 ### Task 1: Nạp nguồn và lập scene
 
-**Consumes:** ZIP kiến trúc V1 và dự án Blender của người dùng nếu có.
+**Consumes:** repo tài liệu hiện tại và ZIP kiến trúc V1; không yêu cầu file .blend đầu vào.
 
 **Produces:** thư mục bàn giao, bản sao nguồn, scene dùng đơn vị mét và báo cáo nguồn.
 
 - [ ] Giải nén ZIP, đọc các file spec, kiểm tra Blender MCP có thể đọc scene và chạy Python.
-- [ ] Lưu bản mô hình cũ nếu có. Không sửa/xóa các collection ngoài phạm vi kiến trúc mới.
+- [ ] Tạo scene Blender mới và thư mục bàn giao. Không sửa/xóa dữ liệu ngoài phạm vi mô hình mới.
 - [ ] Thiết lập hệ tọa độ: x/y theo JSON, z là cao độ; bắc là +y. Một Blender unit bằng một mét.
 - [ ] Ghi kết quả trong `handoff.md`: nguồn nào đã đọc, Blender version, các file tạo ra.
 
@@ -132,6 +147,30 @@ Mỗi phần tử kiến trúc có: `id`, `type`, `position_xyz`, `rotation`, `d
 - [ ] `handoff.md` phân biệt rõ phần đã dựng, đã đo, đã nhìn kiểm tra và phần còn vướng. Nếu không thực sự kiểm tra được một mục, ghi chưa kiểm tra.
 
 **Điều kiện xong phiên 2:** người xem hiểu toàn bộ không gian từ ngoài vào trong và thấy các đường nối/thang/cửa; không còn phần nội thất chỉ được suy ra từ ảnh trên cao. Hoàn chỉnh ở phạm vi kiến trúc thô game, chưa phải thiết kế kỹ thuật thi công hoặc game đã chạy.
+
+## Prompt build từ đầu — gửi nguyên đoạn này cho AI
+
+```text
+Repo này chứa tài liệu, chưa có model hoàn chỉnh. Đọc
+docs/06_cach_build_bao_tang.md và giải nén
+assets/architecture/khung_bao_tang_v1.zip vào
+museum_architecture/source/. Bắt đầu từ scene Blender mới.
+
+Thực hiện toàn bộ Task 1–5 của file 06: dựng khung ngoài, tự bổ sung
+spec kiến trúc bên trong có tọa độ/kích thước, rồi dựng hoàn chỉnh
+các gian, tường, trần, cửa/vòm, thang và tuyến thoát trên cùng model.
+Phiên 1 tạo checkpoint, phiên 2 tiếp tục checkpoint đó; không yêu
+cầu tôi có model/checkpoint cũ và không dừng ở một ảnh trên cao.
+
+Dùng Blender Python qua Blender MCP, lưu script có thể chạy lại.
+Đối chiếu tọa độ và số đo với ZIP. Bàn giao .blend, script, spec
+nội thất, các mặt bằng/mặt đứng/mặt cắt, góc nhìn ngang mắt và
+báo cáo đã kiểm tra/chưa kiểm tra. Không dùng NEWS.md làm spec.
+
+Phạm vi chỉ là kiến trúc thô. Không làm vật liệu, texture, props,
+items, gameplay, Meshy hoặc Godot. Nếu một công cụ thực sự không
+khả dụng, báo phần bị chặn; không thay model thật bằng ảnh minh họa.
+```
 
 ## Prompt mở phiên 1
 

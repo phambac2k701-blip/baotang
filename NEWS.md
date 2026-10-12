@@ -1,11 +1,17 @@
 # News
 
+## 13/10/2026 — Hướng dẫn build từ đầu tại docs/06
+
+Nguồn giao AI chính: [06 — Cách build bảo tàng từ đầu](docs/06_cach_build_bao_tang.md) và [ZIP kiến trúc](assets/architecture/khung_bao_tang_v1.zip). File 06 có đầy đủ trình tự, tiêu chí bàn giao và prompt để AI bắt đầu với scene Blender mới rồi làm cả khung ngoài lẫn kiến trúc bên trong. Không cần model/checkpoint cũ hoặc lịch sử trò chuyện. Hai phiên là hai chặng nối tiếp; checkpoint được tạo trong phiên 1.
+
+Kế hoạch được chuyển vào mục 06; không giữ file 08 trùng nội dung. NEWS.md chỉ là nhật ký cập nhật, không phải hướng dẫn build.
+
 ## 13/10/2026 — Thay kiến trúc cũ, hoàn thiện kiến trúc thô trong Blender
 
 ### Nguồn kiến trúc mới
 
 - [ZIP khung bảo tàng V1](assets/architecture/khung_bao_tang_v1.zip): mặt bằng hai tầng, bốn góc từ cùng tọa độ, cao độ/kích thước phòng, geometry.json, draw_shell.py và README nguồn.
-- [Kế hoạch Blender](docs/08_ke_hoach_kien_truc_tho_blender.md): phiên 1 dựng khung ngoài và các cao độ/vùng; phiên 2 thiết kế và dựng kiến trúc bên trong trên cùng mô hình.
+- [Kế hoạch Blender](docs/06_cach_build_bao_tang.md): phiên 1 dựng khung ngoài và các cao độ/vùng; phiên 2 thiết kế và dựng kiến trúc bên trong trên cùng mô hình.
 - Phương án: ba thùy cong lệch quanh giếng trời, hình bao 16,03 × 12,99 m; tổng diện tích bao sàn hai tầng khoảng 264 m², gồm vùng tường/thang và trừ giếng trời.
 
 ### Phạm vi hiện tại

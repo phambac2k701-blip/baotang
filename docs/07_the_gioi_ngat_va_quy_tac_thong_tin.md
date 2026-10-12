@@ -1,6 +1,6 @@
 # Thế giới khi ngất và quy tắc thông tin cho người chơi
 
-> Cập nhật kiến trúc 13/10/2026: các mã R dưới đây là vùng chức năng của gameplay, không quyết định mặt bằng hoặc tọa độ nhà. Nguồn dựng hiện hành là ZIP và [kế hoạch kiến trúc thô Blender](08_ke_hoach_kien_truc_tho_blender.md). Việc ánh xạ item/event sang map mới thực hiện sau khi chốt kiến trúc; hiện chỉ dựng kiến trúc thô, chưa triển khai gameplay.
+> Cập nhật kiến trúc 13/10/2026: các mã R dưới đây là vùng chức năng của gameplay, không quyết định mặt bằng hoặc tọa độ nhà. Nguồn dựng hiện hành là ZIP và [kế hoạch kiến trúc thô Blender](06_cach_build_bao_tang.md). Việc ánh xạ item/event sang map mới thực hiện sau khi chốt kiến trúc; hiện chỉ dựng kiến trúc thô, chưa triển khai gameplay.
 
 Cập nhật thiết kế ngày 12 tháng 10 năm 2026. File này bổ sung nhánh E06 của bản hiện tại và phân biệt mô tả preview với nội dung manh mối. Kiến trúc nhà dùng ZIP và kế hoạch Blender mới; nguồn thông tin vẫn theo file 02. Scene truy đuổi là công việc gameplay về sau, không thuộc giai đoạn kiến trúc thô hiện tại.
 
