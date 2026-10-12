@@ -8,6 +8,6 @@ Bí mật của bảo tàng là ba hiện vật trưng bày đã bị thay bằn
 
 Kinh dị đến từ nguồn âm và sự thay đổi có nguyên nhân: vật rơi ngoài tầm nhìn, khung rung, chim xuất hiện, cảnh báo quay đầu và một nhánh choáng hoặc bị đánh ngất tùy chọn. Các nhánh này không giết người, lấy mất đồ hay khóa kết thúc. Sau cao trào có khoảng nghỉ để đọc và suy luận.
 
-Thiết kế đầy đủ, đáp án, điều kiện và các file Word nằm trong [README](README.md).
+Thiết kế đầy đủ, đáp án, điều kiện và các tài liệu Markdown nằm trong [README](README.md).
 
 Thiết kế phiên bản 3 bổ sung đúng một phòng bị niêm phong, với câu đố nhiều lớp về ảnh bản gốc, giờ máy, mốc báo động và chuẩn dấu. Năm cụm lớn khác dùng chim, lựa chọn quay đầu, truy âm, Camera và bản ghi. Những cơ chế này cùng dẫn về chiếc chìa khóa và lối dưới giường; không biến toàn bộ game thành chuỗi phòng khóa.
