@@ -1,6 +1,6 @@
 # Sự kiện và nhịp kinh dị
 
-Tài liệu event · Thiết kế phiên bản 3 · 12 tháng 10 năm 2026
+Tài liệu event · Thiết kế phiên bản 4 · 12 tháng 10 năm 2026
 
 Bộ thiết kế gồm sáu cụm event lớn có tình huống khác nhau và mười hai event nhỏ. Chỉ một cụm nhốt người chơi trong phòng. Các cụm còn lại dùng sinh vật, lựa chọn hướng nhìn, truy nguồn âm, Camera hoặc bản ghi âm. Mọi nhánh trở lại mạch chính tìm chìa khóa, mở giường và thoát xuống dưới; không tạo một kết thúc riêng cho mỗi event.
 
@@ -10,7 +10,7 @@ Bộ thiết kế gồm sáu cụm event lớn có tình huống khác nhau và 
 | --- | --- | --- | --- |
 | E08 | Cửa gian phục chế tự niêm phong | Đối chiếu nhiều nguồn và mở khóa | Lấy I12 cho hồ sơ chính |
 | E04 | Chim xuất hiện trên tượng | Nhận ra thay đổi, phản ứng với sinh vật | Bảo tàng có khe hở và sự sống |
-| E05 E06 | Lời nhắc đừng quay đầu | Chọn đi tiếp hoặc quay lại | Một lần xuất hiện không xác định |
+| E05 E06 | Lời nhắc đừng quay đầu | Chọn đi tiếp hoặc quay lại, ngất và truy đuổi ở scene riêng | Trở lại thực tại với đốm sáng tắt |
 | E09 | Tiếng gõ chạy qua đường ống | Chủ động nghe và theo nguồn | Gợi tuyến kỹ thuật nằm thấp |
 | E10 | Camera giữ một bóng đã biến mất | Chụp và đối chiếu với hiện trường | Giữ dấu vết trải nghiệm cá nhân |
 | E11 | Giọng nói tiếp tục sau khi máy dừng | Nghe hoặc ngắt bản ghi, kiểm tra nguồn | Người trực muốn mang hồ sơ ra ngoài |
@@ -128,11 +128,13 @@ Có thể chụp chim vào Camera; ảnh không kích hoạt thêm scare và kh�
 
 4. Biến thể A dùng pose B03 cầm B04 và một chuyển động tay gậy ngắn. Pose được bật khi khuất trong lúc nhìn lên. Gậy vụt cùng A12, L05 tối tại thời điểm va chạm. Biến thể B chỉ có bóng gậy ở mép nhìn, tiếng vụt phía khuất rồi tối. Chọn một biến thể trước lượt chơi; không chạy cả hai.
 
-5. Ngất ngắn rồi tỉnh ở khoảng trống hành lang gần đầu nhánh, hướng biển gian. A13 ù tai lùi nhanh và L01 về chuẩn. Giữ toàn bộ đồ, hồ sơ, ngăn, vòng và góc vật. Tổng trình diễn khoảng tám đến mười hai giây, không chết hoặc về R00 làm lại.
+5. Sau blackout, chuyển vào WORLD-NGAT-01: chạy ba làn trong một scene shape riêng, tránh chướng ngại và một bóng truy đuổi phía sau. Đoạn chạy sạch khoảng 60 giây, có checkpoint và hỗ trợ bỏ thử thách. Không là thế giới tạo từ ảnh, không có item hoặc hồ sơ bắt buộc. Chi tiết điều khiển, đường chạy và lưu tải ở [07_the_gioi_ngat_va_quy_tac_thong_tin](07_the_gioi_ngat_va_quy_tac_thong_tin.md).
+
+6. Qua cổng sáng thì mở mắt tại R01 (u=4,9;v=9,7), nhìn về nam. Một đốm sáng thật phía trước ở (4,9;9,0;h=1,35) tắt dần. Nếu đã nhìn thấy nó, xuất hiện suy nghĩ “CÓ VẺ KHÔNG PHẢI MƠ...”. Trả L01 chuẩn, A13 giảm nhanh, giữ toàn bộ đồ và tiến trình; đánh dấu E06_DONE sau khi trở lại an toàn. Nhịp đánh/choáng trước chạy vẫn khoảng tám đến mười hai giây; toàn cụm có thêm đoạn NG, không còn tỉnh ngay sau blackout.
 
 ### Kết quả và trường hợp biên
 
-Nhân vật chỉ là lần xuất hiện không xác định, không đòi item, không có AI rượt đuổi và không canh cửa cuối. Lưu checkpoint nguyên tử trước cao trào gồm vị trí hồi phục, tiến trình và E06 đang xử lý. Tải trong tối hoặc chọn bỏ cảnh chuyển sang hồi phục và đánh dấu hoàn tất. Quay thêm lần nữa không ngất lại.
+B03 trong nhà chỉ là lần xuất hiện không xác định, không đòi item hoặc canh cửa cuối. NG-CHASER chỉ bám tiến độ trong scene NG, không đi vào bảo tàng. Lưu museum session và phase E06 trước cú đánh; tải giữa chạy về checkpoint NG, tải sau cổng về điểm R01. Bỏ thử thách vẫn trở lại thực tại với tiến trình nguyên vẹn. Quay thêm lần nữa không ngất hoặc chạy lại. Nhánh này vẫn thuộc cụm E05/E06, tổng số cụm lớn giữ sáu.
 
 Nếu ngân sách cao trào không còn, không bắt đầu A11 cảnh báo, để lời nhắn là thông tin tùy chọn. Nếu đã tới biển, chuông dừng, đang đọc, đứng ở vùng nguy hiểm hoặc có O05, không vào nhánh đánh ngất. Cụm này không cung cấp chìa khóa, giấy bắt buộc hay một kết thúc khác.
 
@@ -251,7 +253,7 @@ Kiểm sáu cụm riêng rồi ghép một lượt bỏ mọi tùy chọn, một
 | Mở cửa rồi quên I12 | Khay giữ giấy và có chỉ dẫn quay lại, không nhốt nữa |
 | Đọc lúc có event chờ | Không che chữ, không yếu đèn, hoãn hoặc hủy đúng trạng thái |
 | Tới biển rồi quay đầu | Chuông dừng trước kiểm góc, không ngất |
-| Tải giữa ngất | Điểm hồi phục hợp lệ, giữ đồ và cờ hoàn tất |
+| Tải giữa ngất hoặc NG | Đúng phase/checkpoint theo file 07, giữ museum session, không đánh hoặc chạy lại khi đã qua cổng |
 | Giữ nhìn chim hoặc B05 | Không bật tắt đối tượng ngay trước mắt |
 | Xóa ảnh Camera | Không xóa clue hoặc chạy lại E10 |
 | Stop máy ghi ngay | Dừng bình thường, không phát câu ngoài máy quá sớm |
@@ -259,7 +261,7 @@ Kiểm sáu cụm riêng rồi ghép một lượt bỏ mọi tùy chọn, một
 | Hai cụm cùng sẵn sàng | Một owner chạy, cụm còn lại hoãn hoặc bỏ |
 | Có O05 khi scare còn chờ | Bỏ scare, đường về ổn định |
 
-Chi phí trọng tâm là G60 G61 G62 cùng giao diện đối chiếu cho E08. E04 cần chim tĩnh và hai cánh; E05 E06 cần vùng lựa chọn, ánh sét, camera và một pose gậy hoặc bóng; E09 chỉ cần nguồn âm và khe; E10 cần pose tĩnh trong hốc cùng ảnh frame thật; E11 cần nút, cuộn và âm thu. Không cần đẩy tủ, AI rượt đuổi, dựng cả chuyến vận chuyển, tạo phòng 3D từ ảnh hoặc animate NPC kéo người.
+Chi phí trọng tâm là G60 G61 G62 cùng giao diện đối chiếu cho E08. E04 cần chim tĩnh và hai cánh; E05 E06 cần vùng lựa chọn, ánh sét, pose gậy/bóng, scene NG ba làn với chaser theo tiến độ và đốm sáng khi tỉnh; E09 chỉ cần nguồn âm và khe; E10 cần pose tĩnh trong hốc cùng ảnh frame thật; E11 cần nút, cuộn và âm thu. Không cần đẩy tủ, AI tìm đường truy đuổi trong nhà, dựng cả chuyến vận chuyển, tạo phòng 3D từ ảnh hoặc animate NPC kéo người. Scene NG dùng đường chạy cố định theo file 07.
 
 ## 12 Nguồn tham khảo phương pháp
 

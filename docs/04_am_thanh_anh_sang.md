@@ -1,6 +1,6 @@
 # Âm thanh và ánh sáng trong bảo tàng
 
-Tài liệu âm thanh và ánh sáng · Thiết kế phiên bản 3 · 12 tháng 10 năm 2026
+Tài liệu âm thanh và ánh sáng · Thiết kế phiên bản 4 · 12 tháng 10 năm 2026
 
 Âm thanh giúp nhận biết vật liệu, khoảng cách và thay đổi ở gian khác. Ánh sáng giữ bảo tàng tối và bất an nhưng cho phép đọc đủ thông tin. Hai hệ thống cùng theo trạng thái event, không tự tạo một chuỗi chớp hoặc tiếng giật độc lập làm mất nhịp suy luận.
 
@@ -57,7 +57,7 @@ Người chơi dừng lại thì tiếng bước dừng, không tiếp tục loo
 
 Đặt ưu tiên cho thao tác người chơi và thông tin. Khi có âm định hướng như A06, giảm nền giông vừa đủ nghe nguồn và giữ hướng phát. Khi đọc một giấy, âm nền giữ ổn định và các cao trào đang chờ được hoãn. Khi giải chốt, A04 nổi rõ; không phủ sấm lên đúng thời điểm người chơi cần biết đã giải đúng chưa.
 
-Sáu cụm lớn không đồng nghĩa sáu lần bật âm cực lớn. E09 thiên về nghe nguồn, E10 về bằng chứng ảnh và E11 về thay đổi vị trí giọng. Đặt trần ba cao trào mạnh của E08 E04 E06; những cụm khác dùng mức thấp hoặc vừa. Một cao trào dùng ít nguồn cùng lúc: âm báo, âm chính và âm hồi phục. E06 dùng A11 trước, A10 cho sấm, A12 cho cú đánh, rồi A13. Không phát đồng thời chim, lon rơi, khung rung và nhạc lớn. Các event khác được khóa tạm bởi đạo diễn nhịp trong tài liệu event.
+Sáu cụm lớn không đồng nghĩa sáu lần bật âm cực lớn. E09 thiên về nghe nguồn, E10 về bằng chứng ảnh và E11 về thay đổi vị trí giọng. Đặt trần ba cao trào mạnh của E08 E04 E06; những cụm khác dùng mức thấp hoặc vừa. Một cao trào dùng ít nguồn cùng lúc: âm báo, âm chính và âm hồi phục. E06 dùng A11 trước, A10 cho sấm, A12 cho cú đánh, âm NG theo phần 11, rồi A13 khi đã tỉnh. Không phát đồng thời chim, lon rơi, khung rung và nhạc lớn. Các event khác được khóa tạm bởi đạo diễn nhịp trong tài liệu event.
 
 Mức scare phải được nghe thử trên tai nghe và loa thường. Cảm giác giật đến từ tương phản, thời điểm và khoảng cách gần, không chỉ tăng âm lượng. Có thanh chỉnh âm nền, âm tương tác và cường độ scare; giảm scare vẫn giữ tiếng chốt, tiếng giấy và nguồn định hướng. Kiểm không clip hoặc làm mất hoàn toàn tiếng bước sau khi giảm âm rồi khôi phục.
 
@@ -97,7 +97,7 @@ Sau khi nhìn thấy chim một nhịp, chim giật cánh cùng A09. L01 giữ s
 
 E06 có nhịp nhìn lại nhưng không thấy gì. Góc nhìn nâng nhẹ về ô kính cao, A01 được giảm, L04 chớp từ ngoài rồi A10 phát sau một khoảng rất ngắn phù hợp nguồn sét gần. Ánh sáng trả về mức nền trước khi hình người B03 xuất hiện trong biến thể A, tránh dùng nhiều chớp liên tục để che một model đặt sai.
 
-B03 và gậy B04 xuất hiện tại điểm đã được giấu lúc người chơi nhìn lên. A12 khớp chuyển động gậy; L05 tối ở thời điểm va chạm. A13 nghe nhỏ khi tỉnh lại. Không hiện một dòng “chết” hoặc tiếng game over. Biến thể B thay cú đánh bằng va đập hoặc choáng từ phía khuất, được mô tả rõ là phương án tiết kiệm asset.
+B03 và gậy B04 xuất hiện tại điểm đã được giấu lúc người chơi nhìn lên. A12 khớp chuyển động gậy; L05 tối ở thời điểm va chạm. Sau blackout vào scene NG; A13 chỉ nghe nhỏ khi đã trở lại bảo tàng qua cổng hoặc bỏ đoạn chạy. Không hiện một dòng “chết” hoặc tiếng game over. Biến thể B thay cú đánh bằng va đập hoặc choáng từ phía khuất, được mô tả rõ là phương án tiết kiệm asset.
 
 ### Tiếng rơi ở gian khác
 
@@ -109,7 +109,7 @@ Không có pin giảm theo thời gian. Đèn chỉ yếu, chớp hoặc tắt t
 
 Trước khi tắt đèn, hệ thống kiểm người chơi không ở mép lối xuống, không đang đọc và không trong tương tác chính. Nếu điều kiện không phù hợp thì hoãn hoặc bỏ nhịp, không ép người chơi đứng chờ. Đèn trở về mức chuẩn khi event hoàn tất, bị hủy, tải lại hoặc rời vùng trước trigger.
 
-Trong blackout ngất, tiến trình và đồ vẫn giữ. Âm cao trào kết thúc trước khi điều khiển trả về; chỉ giữ một ù tai giảm dần ngắn. Người chơi có thể mở sổ ngay khi tỉnh lại. Không duy trì mờ, rung và yếu đèn trong vài phút để kéo dài thời lượng.
+Trong blackout và scene NG, tiến trình bảo tàng và đồ vẫn giữ. Âm/ánh sáng của NG nằm ở scene riêng, không giữ một lớp mờ blackout trên toàn đoạn chạy. Âm cao trào kết thúc trước khi điều khiển trả về; chỉ giữ một ù tai giảm dần ngắn. Người chơi có thể mở sổ ngay khi tỉnh lại. Không duy trì mờ, rung và yếu đèn trong vài phút để kéo dài thời lượng.
 
 ## 9 Khoảng nghỉ và kiểm thử
 
@@ -130,3 +130,20 @@ E10: có một tiếng cọ kính nhỏ mời nhìn hốc G68, dùng biến th�
 E11: A20 bắt đầu từ máy G63 với tiếng cơ quay ngắn rồi giọng rõ. Sau khi bản ghi kết thúc hoặc người chơi nhấn Stop ở nhánh hợp lệ, một khoảng yên khoảng hai giây tách nguồn. A21 nói “Mang giấy theo.” từ phía ghế trống bằng cùng giọng, với âm phòng rõ hơn và bớt nhiễu băng. Không đặt giọng này ở mọi nơi hoặc bắt người chơi xoay đúng góc để nghe. L01 giữ sáng; sự bất an đến từ vị trí giọng sau khi máy đã dừng. Kết thúc trả nền bình thường.
 
 Kiểm thêm hủy event và tải giữa A17, A20 A21 hoặc giữa hai nguồn A22. Không lặp tiếng cài cửa nếu cửa đã mở khóa, không để tiếng máy chạy sau Stop và không nối giọng từ máy cũ sang vùng âm khác khi tải. Dữ liệu gốc về giờ, nhãn và mã trên các ảnh giấy luôn giữ nguyên.
+
+## 11 Âm sáng cho thế giới ngất và lúc tỉnh
+
+Đây là yêu cầu cho đợt âm/ánh sáng sau, không yêu cầu tìm asset ngay khi dựng nhà. Bản shape có thể dùng vật liệu màu/self-lit để thấy đường và cổng. Scene riêng không dùng L01 làm nguồn nhìn đường duy nhất.
+
+| Mã | Nguồn | Vai trò |
+| --- | --- | --- |
+| A25 | Gió/nền ở WORLD-NGAT-01 | Âm liên tục nhỏ, thưa ở khoảng nghỉ, không giọng đọc đáp án |
+| A26 | NG-CHASER phía sau | Nhịp truy đuổi theo gap; giảm khi tới đoạn cổng, không tăng âm lượng vô hạn |
+| A27 | Vật cản NG đã chạm | Phản hồi ngắn đúng lần va; không lặp mỗi frame |
+| A28 | NG-PORTAL | Âm mở rộng ở cổng rồi ngắt khi chuyển về R01 |
+| A29 | FX-E06-WISP | Âm rất nhỏ khi đốm tắt; không dùng thêm stinger mạnh lúc tỉnh |
+| L06 | Mặt đường/khung của NG | Đường và cả ba làn luôn đọc được; khoảng nghỉ giảm nhịp, không tắt sàn |
+| L07 | NG-PORTAL | Tông trắng ngà ấm, một nhịp fade có tùy chọn giảm sáng |
+| L08 | FX-E06-WISP trong R01 | Đốm sáng tại vị trí thật, phạm vi nhỏ, tắt/co một lần; không thay L01 |
+
+L07 và L08 có tông chung để gợi liên hệ, không bắt người chơi phân biệt màu để vượt. Chaser có âm phát sau người chơi theo khoảng cách; menu dừng nền điều khiển và mọi timer, resume không phát cú va mới. Khi tỉnh, trả nền A01/A03 và L01 chuẩn, A13 lùi nhanh. Không phát A29 như một cú giật thứ hai và không rải sét/nháy liên tục trong NG. Các mốc hình và state ở [07_the_gioi_ngat_va_quy_tac_thong_tin](07_the_gioi_ngat_va_quy_tac_thong_tin.md).

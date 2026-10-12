@@ -2,7 +2,7 @@
 
 Bản dựng thử 1 ngày 12 tháng 10 năm 2026. Tài liệu này là đầu vào cho AI dựng một bản chơi cơ bản: có ngôi nhà, các phòng, mọi vật thể, thông tin để xem, balo và đường đi đến kết thúc. Mỗi block có đầu ra và điều kiện hoàn thành riêng. Hoàn thành block hiện tại rồi mới làm block tiếp theo.
 
-Kích thước và tọa độ dưới đây là lựa chọn cho bản thử, có thể điều chỉnh sau khi chạy thử. Nội dung bằng chứng, mã item và các điều kiện của flow phiên bản 3 giữ nguyên. File này cụ thể hóa vị trí của `03_kien_truc.md`; `01_flow.md` quy định truyện, `02_clues.md` quy định nội dung nguồn, `05_events.md` quy định sự kiện ở giai đoạn sau. Phần nội dung nguồn cần cho bản dựng được chép đầy đủ vào Block 13 để có thể giao riêng file này cho AI.
+Kích thước và tọa độ dưới đây là lựa chọn cho bản thử, có thể điều chỉnh sau khi chạy thử. Nội dung bằng chứng, mã item và các điều kiện của flow phiên bản 4 giữ nguyên. File này cụ thể hóa vị trí của `03_kien_truc.md`; `01_flow.md` quy định truyện, `02_clues.md` quy định nội dung nguồn, `05_events.md` quy định sự kiện ở giai đoạn sau. Phần nội dung nguồn cần cho bản dựng được chép đầy đủ vào Block 13 để có thể giao riêng file này cho AI.
 
 Trong giai đoạn này dùng shape, màu phẳng và chữ rõ. Chỉ cần một chế độ chiếu sáng xem bản dựng đồng đều, không tối ưu mỹ thuật hay dựng cảnh hù. Âm thanh, ánh sáng kinh dị và việc tìm asset là đợt làm việc sau. Các vị trí phục vụ sự kiện được dự trữ ngay từ kiến trúc.
 
@@ -10,7 +10,7 @@ Trong giai đoạn này dùng shape, màu phẳng và chữ rõ. Chỉ cần m�
 
 Người chơi tỉnh trong R00 ở tầng hai. Đọc tờ I00 trên bàn, đi vào bảo tàng, xem ảnh và vật thể, hoàn thành hồ sơ, lấy O05 rồi quay về mở giường. Lối xuống dẫn tới R06 ở tầng một và ra ngoài. Có đúng một kết thúc. Một phòng R03 đóng khóa một lần; các gian khác không tự nhốt người chơi.
 
-R00 chỉ có giường, bàn, tờ I00, phần vỏ phòng và đèn người chơi đã giữ. Các cửa sổ, mép sàn và bộ phận của giường là kiến trúc, không thêm giấy, ảnh, ghế hoặc đồ nhặt mới vào phòng này. Không có NPC đòi đồ, chết khi giải sai, truy đuổi hoặc tủ phải bê đi.
+R00 chỉ có giường, bàn, tờ I00, phần vỏ phòng và đèn người chơi đã giữ. Các cửa sổ, mép sàn và bộ phận của giường là kiến trúc, không thêm giấy, ảnh, ghế hoặc đồ nhặt mới vào phòng này. Không có NPC đòi đồ, chết khi giải sai, truy đuổi trong nhà hoặc tủ phải bê đi.
 
 Mọi vật thể có tên được đặt trong vùng chơi đều có hành động Xem. Đồ trang trí có mô tả ngắn, cũng xem được, nhưng không sinh nguồn bắt buộc. Vật thể có cơ cấu có thêm hành động riêng như Mở ngăn, Xoay hoặc Dùng dấu. Các bộ phận nhỏ như vít, chân bàn, thanh khung và tấm kính dùng cùng mục Xem của vật thể mẹ; không tạo hàng trăm mục balo cho chúng. Sàn, trần, tường nguyên khối không được tính là item; các chi tiết có tên gắn trên tường được tính và được mô tả riêng.
 
@@ -395,6 +395,74 @@ Nhìn vào một root hợp lệ hiện tên và hành động “Xem”. Nhấn
 
 Đồ trang trí như ghế, bút, lon, giấy kê, cửa sổ chỉ cho một mô tả cụ thể đã viết trong các block phòng. Không hiện “có lẽ chứa bí mật” cho mọi prop. Không tạo thẻ hồ sơ chưa giải cho những đồ này. Khi đồ trang trí quá nhỏ để chọn riêng như kẹp, chỉ chọn root mẹ và liệt kê trong mô tả.
 
+### Lời preview dành cho người chơi
+
+Có năm lớp dữ liệu riêng. Không lấy cả đoạn mô tả thiết kế để hiển thị cho người chơi.
+
+| Trường | Dùng ở đâu | Quy tắc |
+| --- | --- | --- |
+| display_name | Tên khi ngắm/click, tên balo | Tên khách quan, không lộ kết luận; I10 là Biên bản bàn giao, không Biên bản đã sửa |
+| preview_text | Mô tả ngắn khi click Xem | Một hoặc hai câu về thứ đang thấy: chất liệu, kiểu vật, tình trạng; không tự giải nguồn |
+| asset_text / asset_visual_spec / pages | Chữ, hình và các mặt/trang của item thật | Nội dung súc tích của file 02; có thể bí ẩn/kinh dị theo tác giả in-world, nhưng dữ kiện phải đủ suy luận |
+| hint_text / notebook_observation | Nút gợi ý chủ động, ghi nhận quan sát/đối chiếu | Nêu dữ kiện đã thấy; chỉ giải thích quan hệ sau hành động kiểm chứng; không tự kết luận qua preview |
+| narration_text | Suy nghĩ/thoại trong event | Có thể chủ quan, bất an; dòng Không phải mơ chỉ thuộc sự kiện tỉnh, không phải preview một sphere |
+
+Ví dụ I09: preview “Phiếu bảo dưỡng có ghi chú về hai máy ảnh.”; mặt giấy ghi máy A nhanh 7 phút, B chậm 5 phút; người chơi tự hiệu chỉnh. Ví dụ D01: preview “Một chiếc chén men xanh đặt trên đế cố định.”; khi xoay mới thấy tam giác, R08 và tem trăng; sổ ghi điều đã thấy. Không cho preview nói “Chén là bản sao, dùng số 3.”
+
+Ngôn ngữ chung dùng tiếng Việt rõ, trung lập, hơi bí ẩn ở chi tiết quan sát. Có thể nói “Khung cũ có vài vết xước.”; không nói “Bức tranh đang che giấu đáp án.” Không thay chữ trên giấy bằng một câu kể dài về lịch sử bảo tàng. Không dùng câu chắc chắn mà nhân vật chưa có căn cứ biết.
+
+Các bảng ở file 06 có cột Xem và hành động chứa cả yêu cầu kỹ thuật, mã và điều kiện. Chúng không phải lời preview để copy thẳng. Dùng bảng dưới làm lời preview; dùng Block 13 của file 06/file 02 để dựng chữ và hình thực tế. Lời giải ở file 01/05 chỉ là dữ liệu thiết kế, không in trên item nếu không được quy định.
+
+### Preview cho toàn bộ nguồn đã đặt
+
+| ID | display_name | preview_text |
+| --- | --- | --- |
+| F01 | Ảnh lưu trữ gia đình | Một ảnh màu chụp bức tranh gia đình cùng khung gỗ. |
+| F02 | Ảnh bàn kiểm tra | Một bức ảnh chụp bàn làm việc và ba hiện vật. |
+| F03 | Ảnh bàn giao | Bức ảnh chụp một thùng gỗ đang mở trong kho. |
+| F04 | Bản chụp sơ đồ kỹ thuật | Một bản chụp nét vẽ kỹ thuật, có chú thích và đường nối. |
+| F05 | Ảnh ngày mở cửa | Nhóm nhân viên đứng trước sảnh bảo tàng. |
+| F06 | Ảnh phòng trực | Bức ảnh chụp một căn phòng khi còn được sử dụng. |
+| F07 | Ảnh gian kiểm định | Bức ảnh có viền giấy cũ, chụp khu kiểm định trong bảo tàng. |
+| F08 | Bộ ảnh kiểm định | Sáu bức ảnh nhỏ được gắn trên cùng một tấm giấy. |
+| I00 | Tờ hướng dẫn | Một tờ giấy đặt riêng trên bàn. |
+| I01 | Phiếu kiểm tra tranh | Phiếu in nhỏ với một đường gấp ngang. |
+| I02 | Phiếu trả từ xưởng | Một phiếu giấy có lỗ dập ở góc. |
+| I03 | Sổ kiểm kê | Một tập giấy gập có hai trang nội dung. |
+| I04 | Phiếu bảo trì | Một phiếu in chia thành hai phần. |
+| I05 | Lời nhắn viết tay | Một mẩu giấy có chữ viết tay và tên ở cuối. |
+| I06 | Phiếu bảo dưỡng đèn | Phiếu giấy xanh nhạt đã cũ ở mép. |
+| I07 | Phiếu vệ sinh trưng bày | Một tờ hướng dẫn công việc trong gian trưng bày. |
+| I08 | Phiếu sửa khóa | Phiếu giấy xám kem có chữ ở cả hai mặt. |
+| I09 | Phiếu bảo dưỡng máy ảnh | Phiếu bảo dưỡng có ghi chú về hai máy ảnh. |
+| I10 | Biên bản bàn giao | Một biên bản có chữ ký ở cuối trang. |
+| I11 | Nhật ký báo động | Một tờ nhật ký ghi thời điểm của một sự việc. |
+| I12 | Phiếu vận chuyển | Một phiếu giấy còn dấu xác nhận rõ. |
+| W01 | Gia đình bên cửa sổ | Bức tranh gia đình trong khung gỗ sơn xanh ngọc. |
+| W02 | Bảng hướng dẫn đối chiếu | Một bảng giấy được kẹp bằng hai thanh gỗ mảnh. |
+| W03 | Bảng lưu hồ sơ | Bảng có các hàng, cột và nhãn chữ số. |
+| W04 | Ảnh cầu thang cũ | Bức ảnh đen trắng trong khung gỗ nâu. |
+| W05 | Tờ nhắn trên tường | Một tờ giấy ghim lên tường, mép dưới bị xé. |
+| W06 | Nắng trong sân | Bức tranh tạo bởi các mảng màu trong khung gỗ mỏng. |
+| W07 | Quy trình trên cửa | Một bảng men chữ đen gắn vào mặt trong cánh cửa. |
+| W08 | Bảng dấu kiểm định | Bảng giấy trong khung gỗ xám, có hình và hai cột năm. |
+| D01 | Chén men xanh | Một chiếc chén men xanh đặt trên đế cố định. |
+| D02 | Lá đồng | Một vật hình lá, có cuống dài và bề mặt màu đồng xanh. |
+| D03 | Chuông nhỏ | Một chiếc chuông đồng có tay cầm dạng vòng. |
+| D04 | Mặt nạ gỗ | Mặt nạ sơn kem đỏ đặt trên một bệ riêng. |
+| O01 | Dấu Hiện vật | Một con dấu đồng nhỏ, có chữ trên mặt. |
+| O02 | Dấu Đường đi | Một con dấu đồng với biểu tượng đường rẽ. |
+| O03 | Dấu Tầng | Một con dấu đồng có hình bậc. |
+| O04 | Máy ảnh | Máy ảnh nhỏ với dây đeo xám và màn hình ở mặt sau. |
+| O05 | Chìa khóa | Chìa khóa đồng đầu vòng, có rãnh ở cổ và ba răng. |
+| N01 | Nét bút chì | Vài nét bút chì ngắn nằm cạnh khu treo tranh. |
+| N02 | Vết nước | Vết ố cũ chạy thành nhánh trên tường. |
+| N03 | Nhãn trên ống | Một nhãn nhỏ gắn trên đường ống kim loại. |
+
+Preview không bỏ khả năng người chơi tự thấy chữ trên asset: nhãn R08 nằm đúng trên đáy khi xoay; năm trên ảnh vẫn hiện trên viền. Tách preview chỉ ngăn hệ thống tự diễn giải hoặc đưa lời giải trước khi người chơi quan sát. Khi Xem nguồn phải mở cả mặt hình/giấy, không chỉ hiện một câu preview rồi giấu nguồn.
+
+Preview prop G/PX/ENV dùng các mô tả khách quan ở file 06. Ngoại lệ cần thay rõ: G53 “Một hộp kim loại có ba hàng nhãn.”; G61 “Bốn vòng số và một tay gạt.”; G62 “Khay nhỏ bên khung cửa.”; G68 “Một hốc trưng bày có kính.”; DRAFT-CODE-TERMINAL “Máy đọc thẻ kiểm kê có màn hình và nút điều khiển.” Không hiện “môđun dự trữ”, “nguồn thứ 19”, “đáp án 3581”, “prototype” hoặc tên engine trong UI người chơi. Các câu này chỉ thuộc ghi chú developer.
+
 ### Các loại xem
 
 | Loại | Giao diện | Lưu | Hành động khác |
@@ -474,15 +542,15 @@ Sau khi nhặt O04, nút chụp lưu frame đi lại thật, tạm ẩn HUD. Kh�
 
 ### Hợp đồng dữ liệu cho AI
 
-Mỗi object có `id`, `display_name`, `room`, `parent_id`, `shape`, `position`, `size`, `inspect_text`, `interaction_type`, `collectible`, `required_for_final`, `content_ref`, `visible_when`, `collision_mode`, `save_key`. Đây là các trường thiết kế, không yêu cầu tên script của một engine cụ thể. Item F/I phải có `front`, `back` hoặc `pages`; nguồn D có `marks`; cơ cấu có `state` và `allowed_actions`. ID là duy nhất; G41 và tên G40-B2 chỉ là cùng một object, không hai bản.
+Mỗi object có `id`, `display_name`, `room`, `parent_id`, `shape`, `position`, `size`, `preview_text`, `interaction_type`, `collectible`, `required_for_final`, `content_ref`, `visible_when`, `collision_mode`, `save_key`. Đây là các trường thiết kế, không yêu cầu tên script của một engine cụ thể. Item F/I phải có `front`, `back` hoặc `pages`; nguồn D có `marks`; cơ cấu có `state` và `allowed_actions`. ID là duy nhất; G41 và tên G40-B2 chỉ là cùng một object, không hai bản.
 
-`content_ref` trỏ đúng phần Block 13; `inspect_text` của prop là câu đã viết ở bảng phòng. Danh sách prop/root dùng Xem không vào balo. Người làm bản thử có thể nhóm dữ liệu theo phòng, nhưng phải truy được mỗi ID tới nơi đặt và nội dung. Không sinh logic từ tên file ảnh, màu shape hoặc vị trí may mắn của camera.
+`content_ref` trỏ đúng phần Block 13; `preview_text` dùng lời khách quan ở bảng preview, không copy các cột hành động/đáp án của bảng phòng. Các mô tả trạng thái như Locked/Open là action_status riêng. Danh sách prop/root dùng Xem không vào balo. Người làm bản thử có thể nhóm dữ liệu theo phòng, nhưng phải truy được mỗi ID tới nơi đặt và nội dung. Không sinh logic từ tên file ảnh, màu shape hoặc vị trí may mắn của camera.
 
 Đầu ra: đọc lại được mọi nguồn đã thu, so được nguồn, chụp/xóa được ảnh riêng và biết rõ nguồn đang thiếu.
 
 ## Block 13 Nội dung đầy đủ của ảnh giấy hiện vật và vật phẩm
 
-Các phần tiếp theo chép nguyên nội dung nguồn từ danh mục clues phiên bản 3. Vị trí chức năng của nguồn giữ nguyên; tọa độ và parent cụ thể lấy từ Block 04–11. Đây là yêu cầu của asset placeholder, không phải một danh sách để AI tự nghĩ thêm chữ.
+Các phần tiếp theo chép nguyên nội dung nguồn từ danh mục clues. Chỉ chữ được chỉ định ở mặt trước/sau/trang và hình/mã thật được hiển thị; các câu giải thích công dụng/lời giải trong mô tả là ghi chú developer, không phải preview hoặc chữ in thêm lên item. Vị trí chức năng của nguồn giữ nguyên; tọa độ và parent cụ thể lấy từ Block 04–11. Đây là yêu cầu của asset placeholder, không phải một danh sách để AI tự nghĩ thêm chữ.
 
 Ảnh chưa có asset thật dùng plane và bản xem được biên soạn bằng shape/icon/text theo nội dung dưới đây. Chữ và chi tiết quyết định phải hiện trong bản chơi. Một thumbnail chỉ ghi ID không đủ. Mặt trước/mặt sau là hai mặt dữ liệu; không cho Xem mặt sau của tranh gắn tường. Kích thước khung thật lấy ở bảng phòng; kiểu khung, màu và chữ lấy ở đây.
 
@@ -770,7 +838,7 @@ Nguồn không tô sẵn cột đúng. Người chơi cần I08 và F07 để ch
 
 Chi tiết máy ghép lệnh là đề xuất mới, chưa thay P04 trong flow đã chốt. Bản dựng nhà dự trữ đúng một vị trí cho nó ở R04. Không yêu cầu chạy máy để lấy key và không âm thầm đổi nội dung I02/W03 đang dùng. Có thể bật một chế độ thử riêng sau khi bản cơ bản hoàn thành.
 
-`DRAFT-CODE-TERMINAL` là một bàn máy box 0,70 × 0,45 × 1,20 tại `(8,75;2,65;0)` trong R04, mặt màn hình hướng nam. Đây là prop độc lập, không G63 máy ghi âm. Vùng đứng trước là `(8,75;1,80)`. Xem trong chế độ cơ bản: “Máy đọc thẻ kiểm kê. Đây là vị trí dự trữ cho chương trình xử lý thẻ.” Không Nhặt, không cờ bắt buộc. Nút Chạy chỉ bật khi `draft_code_demo_enabled`.
+`DRAFT-CODE-TERMINAL` là một bàn máy box 0,70 × 0,45 × 1,20 tại `(8,75;2,65;0)` trong R04, mặt màn hình hướng nam. Đây là prop độc lập, không G63 máy ghi âm. Vùng đứng trước là `(8,75;1,80)`. Preview cho người chơi: “Máy đọc thẻ kiểm kê có màn hình và nút điều khiển.” Không Nhặt, không cờ bắt buộc. Nút Chạy chỉ bật khi `draft_code_demo_enabled`.
 
 Demo có ba nút Chạy / Từng bước / Đặt lại và các khối ĐỌC, GIỮ, XẾP, VỚI MỖI THẺ, NẾU, ĐẢO, GHI Ô, IN. Người chơi chọn và đổi thứ tự khối; không gõ cú pháp hoặc dấu ngoặc. UI chỉ chạy một tập lệnh hữu hạn, không thực thi code do người dùng gõ, không cho lệnh IN một chuỗi B2 trực tiếp.
 
@@ -855,3 +923,7 @@ Kiến trúc: các sàn/trần/wall theo Block 02–03, hai vách bẻ, 11 porta
 | Đi xuống và ra hiên | Tới điểm R06 an toàn, không collider trong người; END trước mép sàn |
 
 Nghiệm thu kiến trúc bằng một lượt đi hết và đối chiếu ID, không bằng ảnh đẹp. Khi còn thiếu nguồn, vị trí chưa tới được hoặc Xem không có nội dung, bản thử chưa hoàn thành. Sau khi đạt bản này mới làm đợt âm thanh/ánh sáng, asset hình ảnh và trình diễn sự kiện.
+
+### Bổ sung sau khi dựng nhà và items
+
+Nhánh ngất E06 nối scene DreamRunDraft ở [07_the_gioi_ngat_va_quy_tac_thong_tin](07_the_gioi_ngat_va_quy_tac_thong_tin.md). Nhà và các nguồn vẫn theo 17 block này; không gen thêm tầng hoặc phòng từ NG. Thêm FX-E06-WISP sphere 0,08 m tại R01 (4,9;9,0;h=1,35), mặc định ẩn, không collider/balo; chỉ bật khi tỉnh và tắt một lần. Đoạn chạy làm sau lượt G, có checkpoint, không giữ 19 nguồn hay ending. Khi giao riêng file này cho AI gen nhà, chỉ gen phần nhà/đồ vật; scene NG là tác vụ riêng.

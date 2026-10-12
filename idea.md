@@ -6,8 +6,8 @@ Vòng lặp là xem ảnh và giấy, đối chiếu với tranh hoặc hiện v
 
 Bí mật của bảo tàng là ba hiện vật trưng bày đã bị thay bằng bản sao, còn bản gốc đi qua kho phục chế vào tuyến vận chuyển. Sơ đồ cho thấy phòng trực ở tầng hai và đường kỹ thuật xuống tầng một nằm dưới giường. Tìm được khe sàn sớm không mở được giường khi chưa có chìa khóa.
 
-Kinh dị đến từ nguồn âm và sự thay đổi có nguyên nhân: vật rơi ngoài tầm nhìn, khung rung, chim xuất hiện, cảnh báo quay đầu và một nhánh choáng hoặc bị đánh ngất tùy chọn. Các nhánh này không giết người, lấy mất đồ hay khóa kết thúc. Sau cao trào có khoảng nghỉ để đọc và suy luận.
+Kinh dị đến từ nguồn âm và sự thay đổi có nguyên nhân: vật rơi ngoài tầm nhìn, khung rung, chim xuất hiện, cảnh báo quay đầu và một nhánh choáng hoặc bị đánh ngất tùy chọn. Trong E06, player lạc sang scene truy đuổi ba làn, qua cổng sáng rồi tỉnh tại hành lang; một đốm sáng tắt tạo cảm giác “CÓ VẺ KHÔNG PHẢI MƠ...” nhưng không đổi kết thúc. Các nhánh này không giết người, lấy mất đồ hay khóa kết thúc. Sau cao trào có khoảng nghỉ để đọc và suy luận.
 
 Thiết kế đầy đủ, đáp án, điều kiện và các tài liệu Markdown nằm trong [README](README.md).
 
-Thiết kế phiên bản 3 bổ sung đúng một phòng bị niêm phong, với câu đố nhiều lớp về ảnh bản gốc, giờ máy, mốc báo động và chuẩn dấu. Năm cụm lớn khác dùng chim, lựa chọn quay đầu, truy âm, Camera và bản ghi. Những cơ chế này cùng dẫn về chiếc chìa khóa và lối dưới giường; không biến toàn bộ game thành chuỗi phòng khóa.
+Thiết kế phiên bản 4 bổ sung đúng một phòng bị niêm phong, với câu đố nhiều lớp về ảnh bản gốc, giờ máy, mốc báo động và chuẩn dấu. Năm cụm lớn khác dùng chim, lựa chọn quay đầu, truy âm, Camera và bản ghi. Những cơ chế này cùng dẫn về chiếc chìa khóa và lối dưới giường; không biến toàn bộ game thành chuỗi phòng khóa.

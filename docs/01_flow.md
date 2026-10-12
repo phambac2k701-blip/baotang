@@ -1,6 +1,6 @@
 # Bảo tàng và chiếc chìa khóa
 
-Tài liệu flow · Thiết kế phiên bản 3 · 12 tháng 10 năm 2026
+Tài liệu flow · Thiết kế phiên bản 4 · 12 tháng 10 năm 2026
 
 Người chơi tỉnh dậy trong phòng trực của một bảo tàng bỏ hoang, tìm chiếc chìa khóa được vẽ trên tờ hướng dẫn rồi trở lại mở giường để xuống lối thoát. Tài liệu này chốt diễn biến, đáp án, điều kiện tiến triển và cách xử lý những người tìm được vị trí lối ra quá sớm. Mã clues, phòng và event được dùng thống nhất trong bốn tài liệu còn lại.
 
@@ -139,7 +139,7 @@ Sổ hiển thị ba hồ sơ và nguồn đang thiếu trong hồ sơ đang là
 
 Clue mới có vùng xem lớn, chữ tương phản và bản chép nội dung để đọc trong balo. Người chơi có thể đặt hai ảnh hoặc giấy cạnh nhau trong giao diện. Các chi tiết quyết định đều được đánh dấu trong sổ sau khi kiểm chứng đúng, nhưng không bị khoanh sẵn trên texture để lộ đáp án ngay từ đầu.
 
-Event được đặt giữa hai cụm suy luận hoặc lúc di chuyển. Khi đọc giấy hay giải cơ cấu, hệ thống không tắt đèn và không phát một cú giật lớn che thông tin. Một nguồn âm từ gian khác có thể gợi quay lại hiện vật, nhưng sổ luôn có cách chỉ đường thay thế. Tài liệu event quy định rõ lượt quay đầu và ngõ cụt để bảo đảm không tạo kẹt. Nhánh scare đánh ngất là tùy chọn, không chết và giữ tiến trình; sau khi có chìa khóa không chạy thêm scare trên đường về. Sáu cụm lớn gồm E08 cửa niêm phong, E04 chim, E05 E06 lựa chọn quay đầu, E09 truy nguồn tiếng gõ, E10 Camera và bóng trong hốc, E11 bản ghi âm. Chỉ E08 đóng khóa một phòng; những cụm khác không bắt giải lại cùng dạng câu đố.
+Event được đặt giữa hai cụm suy luận hoặc lúc di chuyển. Khi đọc giấy hay giải cơ cấu, hệ thống không tắt đèn và không phát một cú giật lớn che thông tin. Một nguồn âm từ gian khác có thể gợi quay lại hiện vật, nhưng sổ luôn có cách chỉ đường thay thế. Tài liệu event quy định rõ lượt quay đầu và ngõ cụt để bảo đảm không tạo kẹt. Nhánh scare đánh ngất là tùy chọn: E06 chuyển vào WORLD-NGAT-01 để chạy ba làn, qua cổng sáng rồi trở lại R01, thấy đốm sáng tắt. Chi tiết ở [07_the_gioi_ngat_va_quy_tac_thong_tin](07_the_gioi_ngat_va_quy_tac_thong_tin.md). Không chết, không mất nguồn, không thêm ending; sau khi có chìa khóa không chạy thêm scare trên đường về. Sáu cụm lớn gồm E08 cửa niêm phong, E04 chim, E05 E06 lựa chọn quay đầu, E09 truy nguồn tiếng gõ, E10 Camera và bóng trong hốc, E11 bản ghi âm. Chỉ E08 đóng khóa một phòng; những cụm khác không bắt giải lại cùng dạng câu đố.
 
 ## 9 Trạng thái lưu và tiêu chí chơi thử
 

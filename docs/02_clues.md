@@ -1,6 +1,6 @@
 # Ảnh giấy và vật phẩm của bảo tàng
 
-Tài liệu clues · Thiết kế phiên bản 3 · 12 tháng 10 năm 2026
+Tài liệu clues · Thiết kế phiên bản 4 · 12 tháng 10 năm 2026
 
 Danh mục này mô tả nội dung nhìn thấy, chữ in, mặt sau, khung và cách thu thập của từng nguồn thông tin. Những chi tiết có đáp án phải được đưa vào asset, không chỉ nằm trong lời mô tả thiết kế. Mã nguồn là căn cứ chung cho flow, kiến trúc, âm thanh và event.
 
@@ -327,3 +327,71 @@ Nguồn không tô sẵn cột đúng. Người chơi cần I08 và F07 để ch
 E10 dùng B05 đã hiện diện thật trong hốc kính hành lang trước khi người chơi chụp. Ảnh Camera lưu đúng frame được chụp, không dán một người giả vào ảnh sau đó. B05 chỉ biến mất khi hốc ngoài tầm nhìn và không còn job chụp. Nếu người chơi giữ nhìn, bóng vẫn ở đó; không ép chớp đèn để che việc đổi trạng thái. Ảnh cá nhân này không là nguồn thứ 20 hoặc điều kiện của một kết thúc khác.
 
 E04 và E08 cũng cho chụp chim hoặc mặt nạ nếu chúng đang thấy. Ảnh giấy và tranh làm bằng chứng không đổi nội dung do scare. Chỉ pose của đối tượng trình diễn, nguồn âm hoặc đồ trang trí có thể đổi theo trạng thái event đã định nghĩa.
+
+## 13 Lời preview và dữ liệu hiện trên item
+
+Có năm lớp dữ liệu riêng. Không lấy cả đoạn mô tả thiết kế để hiển thị cho người chơi.
+
+| Trường | Dùng ở đâu | Quy tắc |
+| --- | --- | --- |
+| display_name | Tên khi ngắm/click, tên balo | Tên khách quan, không lộ kết luận; I10 là Biên bản bàn giao, không Biên bản đã sửa |
+| preview_text | Mô tả ngắn khi click Xem | Một hoặc hai câu về thứ đang thấy: chất liệu, kiểu vật, tình trạng; không tự giải nguồn |
+| asset_text / asset_visual_spec / pages | Chữ, hình và các mặt/trang của item thật | Nội dung súc tích của file 02; có thể bí ẩn/kinh dị theo tác giả in-world, nhưng dữ kiện phải đủ suy luận |
+| hint_text / notebook_observation | Nút gợi ý chủ động, ghi nhận quan sát/đối chiếu | Nêu dữ kiện đã thấy; chỉ giải thích quan hệ sau hành động kiểm chứng; không tự kết luận qua preview |
+| narration_text | Suy nghĩ/thoại trong event | Có thể chủ quan, bất an; dòng Không phải mơ chỉ thuộc sự kiện tỉnh, không phải preview một sphere |
+
+Ví dụ I09: preview “Phiếu bảo dưỡng có ghi chú về hai máy ảnh.”; mặt giấy ghi máy A nhanh 7 phút, B chậm 5 phút; người chơi tự hiệu chỉnh. Ví dụ D01: preview “Một chiếc chén men xanh đặt trên đế cố định.”; khi xoay mới thấy tam giác, R08 và tem trăng; sổ ghi điều đã thấy. Không cho preview nói “Chén là bản sao, dùng số 3.”
+
+Ngôn ngữ chung dùng tiếng Việt rõ, trung lập, hơi bí ẩn ở chi tiết quan sát. Có thể nói “Khung cũ có vài vết xước.”; không nói “Bức tranh đang che giấu đáp án.” Không thay chữ trên giấy bằng một câu kể dài về lịch sử bảo tàng. Không dùng câu chắc chắn mà nhân vật chưa có căn cứ biết.
+
+Các bảng ở file 06 có cột Xem và hành động chứa cả yêu cầu kỹ thuật, mã và điều kiện. Chúng không phải lời preview để copy thẳng. Dùng bảng dưới làm lời preview; dùng Block 13 của file 06/file 02 để dựng chữ và hình thực tế. Lời giải ở file 01/05 chỉ là dữ liệu thiết kế, không in trên item nếu không được quy định.
+
+### Preview cho toàn bộ nguồn đã đặt
+
+| ID | display_name | preview_text |
+| --- | --- | --- |
+| F01 | Ảnh lưu trữ gia đình | Một ảnh màu chụp bức tranh gia đình cùng khung gỗ. |
+| F02 | Ảnh bàn kiểm tra | Một bức ảnh chụp bàn làm việc và ba hiện vật. |
+| F03 | Ảnh bàn giao | Bức ảnh chụp một thùng gỗ đang mở trong kho. |
+| F04 | Bản chụp sơ đồ kỹ thuật | Một bản chụp nét vẽ kỹ thuật, có chú thích và đường nối. |
+| F05 | Ảnh ngày mở cửa | Nhóm nhân viên đứng trước sảnh bảo tàng. |
+| F06 | Ảnh phòng trực | Bức ảnh chụp một căn phòng khi còn được sử dụng. |
+| F07 | Ảnh gian kiểm định | Bức ảnh có viền giấy cũ, chụp khu kiểm định trong bảo tàng. |
+| F08 | Bộ ảnh kiểm định | Sáu bức ảnh nhỏ được gắn trên cùng một tấm giấy. |
+| I00 | Tờ hướng dẫn | Một tờ giấy đặt riêng trên bàn. |
+| I01 | Phiếu kiểm tra tranh | Phiếu in nhỏ với một đường gấp ngang. |
+| I02 | Phiếu trả từ xưởng | Một phiếu giấy có lỗ dập ở góc. |
+| I03 | Sổ kiểm kê | Một tập giấy gập có hai trang nội dung. |
+| I04 | Phiếu bảo trì | Một phiếu in chia thành hai phần. |
+| I05 | Lời nhắn viết tay | Một mẩu giấy có chữ viết tay và tên ở cuối. |
+| I06 | Phiếu bảo dưỡng đèn | Phiếu giấy xanh nhạt đã cũ ở mép. |
+| I07 | Phiếu vệ sinh trưng bày | Một tờ hướng dẫn công việc trong gian trưng bày. |
+| I08 | Phiếu sửa khóa | Phiếu giấy xám kem có chữ ở cả hai mặt. |
+| I09 | Phiếu bảo dưỡng máy ảnh | Phiếu bảo dưỡng có ghi chú về hai máy ảnh. |
+| I10 | Biên bản bàn giao | Một biên bản có chữ ký ở cuối trang. |
+| I11 | Nhật ký báo động | Một tờ nhật ký ghi thời điểm của một sự việc. |
+| I12 | Phiếu vận chuyển | Một phiếu giấy còn dấu xác nhận rõ. |
+| W01 | Gia đình bên cửa sổ | Bức tranh gia đình trong khung gỗ sơn xanh ngọc. |
+| W02 | Bảng hướng dẫn đối chiếu | Một bảng giấy được kẹp bằng hai thanh gỗ mảnh. |
+| W03 | Bảng lưu hồ sơ | Bảng có các hàng, cột và nhãn chữ số. |
+| W04 | Ảnh cầu thang cũ | Bức ảnh đen trắng trong khung gỗ nâu. |
+| W05 | Tờ nhắn trên tường | Một tờ giấy ghim lên tường, mép dưới bị xé. |
+| W06 | Nắng trong sân | Bức tranh tạo bởi các mảng màu trong khung gỗ mỏng. |
+| W07 | Quy trình trên cửa | Một bảng men chữ đen gắn vào mặt trong cánh cửa. |
+| W08 | Bảng dấu kiểm định | Bảng giấy trong khung gỗ xám, có hình và hai cột năm. |
+| D01 | Chén men xanh | Một chiếc chén men xanh đặt trên đế cố định. |
+| D02 | Lá đồng | Một vật hình lá, có cuống dài và bề mặt màu đồng xanh. |
+| D03 | Chuông nhỏ | Một chiếc chuông đồng có tay cầm dạng vòng. |
+| D04 | Mặt nạ gỗ | Mặt nạ sơn kem đỏ đặt trên một bệ riêng. |
+| O01 | Dấu Hiện vật | Một con dấu đồng nhỏ, có chữ trên mặt. |
+| O02 | Dấu Đường đi | Một con dấu đồng với biểu tượng đường rẽ. |
+| O03 | Dấu Tầng | Một con dấu đồng có hình bậc. |
+| O04 | Máy ảnh | Máy ảnh nhỏ với dây đeo xám và màn hình ở mặt sau. |
+| O05 | Chìa khóa | Chìa khóa đồng đầu vòng, có rãnh ở cổ và ba răng. |
+| N01 | Nét bút chì | Vài nét bút chì ngắn nằm cạnh khu treo tranh. |
+| N02 | Vết nước | Vết ố cũ chạy thành nhánh trên tường. |
+| N03 | Nhãn trên ống | Một nhãn nhỏ gắn trên đường ống kim loại. |
+
+Preview không bỏ khả năng người chơi tự thấy chữ trên asset: nhãn R08 nằm đúng trên đáy khi xoay; năm trên ảnh vẫn hiện trên viền. Tách preview chỉ ngăn hệ thống tự diễn giải hoặc đưa lời giải trước khi người chơi quan sát. Khi Xem nguồn phải mở cả mặt hình/giấy, không chỉ hiện một câu preview rồi giấu nguồn.
+
+Preview prop G/PX/ENV dùng các mô tả khách quan ở file 06. Ngoại lệ cần thay rõ: G53 “Một hộp kim loại có ba hàng nhãn.”; G61 “Bốn vòng số và một tay gạt.”; G62 “Khay nhỏ bên khung cửa.”; G68 “Một hốc trưng bày có kính.”; DRAFT-CODE-TERMINAL “Máy đọc thẻ kiểm kê có màn hình và nút điều khiển.” Không hiện “môđun dự trữ”, “nguồn thứ 19”, “đáp án 3581”, “prototype” hoặc tên engine trong UI người chơi. Các câu này chỉ thuộc ghi chú developer.

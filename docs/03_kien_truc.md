@@ -1,6 +1,6 @@
 # Kiến trúc và đối tượng trong bảo tàng
 
-Tài liệu kiến trúc · Thiết kế phiên bản 3 · 12 tháng 10 năm 2026
+Tài liệu kiến trúc · Thiết kế phiên bản 4 · 12 tháng 10 năm 2026
 
 Bảo tàng được chia theo chức năng của câu đố và nhịp khám phá. Tài liệu này xác định từng gian, đường nối, vật thể và chuyển động cần làm; chưa chốt tọa độ, kích thước cuối hay hình dáng cánh giường. Các vị trí được mô tả theo quan hệ như cạnh bảng, trên đế hoặc trong ngăn. Bản dựng thử có tọa độ, mặt bằng, chi tiết tường/cửa, placeholder và các block giao AI trong [06_draft_kien_truc_va_items](06_draft_kien_truc_va_items.md); các kích thước đó phục vụ prototype, chưa phải kích thước model cuối.
 
@@ -128,6 +128,10 @@ E09 dùng các điểm âm cố định ở R01, R04 và R05, nối qua hành la
 
 E10 dùng hốc kính G68 ở R01, có vùng nền để thấy silhouette và khoảng đứng để hướng Camera. Hốc cách cửa R03 đủ để không cùng phát E08; vị trí cụ thể chỉ chốt khi dựng khối. B05 là pose tĩnh có thể dùng lại model nhân vật, không có AI hoặc tương tác đánh nhau.
 
-E11 dùng G63 trên bàn R04 và một điểm âm sau ghế trống. Ghế giữ nguyên, không cần có người ngồi hoặc dịch ghế. Nhấn Stop có thể đổi nhánh âm nhưng không khóa ngăn hoặc giấu hồ sơ. Cả sáu cụm lớn dùng đường đi và đồ cố định; chỉ E08 có cơ chế nhốt phòng.
+E11 dùng G63 trên bàn R04 và một điểm âm sau ghế trống. Ghế giữ nguyên, không cần có người ngồi hoặc dịch ghế. Nhấn Stop có thể đổi nhánh âm nhưng không khóa ngăn hoặc giấu hồ sơ. Các phần xảy ra trong bảo tàng dùng đường đi và đồ cố định; chỉ E08 có cơ chế nhốt phòng. E06 có thêm WORLD-NGAT-01 ở scene riêng theo [07_the_gioi_ngat_va_quy_tac_thong_tin](07_the_gioi_ngat_va_quy_tac_thong_tin.md), không là một phòng hoặc tầng của nhà.
 
 Bóng dưới khe G60 có thể dùng một vật che nhỏ B06 ở phía hành lang, trượt ngắn trong vùng khuất và đổ bóng từ ánh hắt L02 có thật. Nếu góc sáng không tạo được bóng hợp lý, chỉ giữ A19 bước chân. Không thêm một nguồn sáng vô hình hoặc yêu cầu một NPC đi bộ để làm nhịp này.
+
+## 13 Đốm sáng lúc tỉnh và scene ngoài nhà
+
+FX-E06-WISP là sphere đường kính 0,08 m tại R01 (u=4,9;v=9,0;h=1,35), không collider/nhặt/nguồn; mặc định ẩn, chỉ hiện khi tỉnh sau NG rồi tắt. Điểm người chơi phục hồi (4,9;9,7), hướng nam, không đổi kiến trúc. DreamRunDraft được dựng riêng sau nhà; không đẩy NG-CHASER vào R01 hoặc thêm cửa cho WORLD-NGAT-01.
