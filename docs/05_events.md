@@ -1,5 +1,7 @@
 # Sự kiện và nhịp kinh dị
 
+> Cập nhật kiến trúc 13/10/2026: các mã R dưới đây là vùng chức năng của gameplay, không quyết định mặt bằng hoặc tọa độ nhà. Nguồn dựng hiện hành là ZIP và [kế hoạch kiến trúc thô Blender](08_ke_hoach_kien_truc_tho_blender.md). Việc ánh xạ item/event sang map mới thực hiện sau khi chốt kiến trúc; hiện chỉ dựng kiến trúc thô, chưa triển khai gameplay.
+
 Tài liệu event · Thiết kế phiên bản 4 · 12 tháng 10 năm 2026
 
 Bộ thiết kế gồm sáu cụm event lớn có tình huống khác nhau và mười hai event nhỏ. Chỉ một cụm nhốt người chơi trong phòng. Các cụm còn lại dùng sinh vật, lựa chọn hướng nhìn, truy nguồn âm, Camera hoặc bản ghi âm. Mọi nhánh trở lại mạch chính tìm chìa khóa, mở giường và thoát xuống dưới; không tạo một kết thúc riêng cho mỗi event.
@@ -130,7 +132,7 @@ Có thể chụp chim vào Camera; ảnh không kích hoạt thêm scare và kh�
 
 5. Sau blackout, chuyển vào WORLD-NGAT-01: chạy ba làn trong một scene shape riêng, tránh chướng ngại và một bóng truy đuổi phía sau. Đoạn chạy sạch khoảng 60 giây, có checkpoint và hỗ trợ bỏ thử thách. Không là thế giới tạo từ ảnh, không có item hoặc hồ sơ bắt buộc. Chi tiết điều khiển, đường chạy và lưu tải ở [07_the_gioi_ngat_va_quy_tac_thong_tin](07_the_gioi_ngat_va_quy_tac_thong_tin.md).
 
-6. Qua cổng sáng thì mở mắt tại R01 (u=4,9;v=9,7), nhìn về nam. Một đốm sáng thật phía trước ở (4,9;9,0;h=1,35) tắt dần. Nếu đã nhìn thấy nó, xuất hiện suy nghĩ “CÓ VẺ KHÔNG PHẢI MƠ...”. Trả L01 chuẩn, A13 giảm nhanh, giữ toàn bộ đồ và tiến trình; đánh dấu E06_DONE sau khi trở lại an toàn. Nhịp đánh/choáng trước chạy vẫn khoảng tám đến mười hai giây; toàn cụm có thêm đoạn NG, không còn tỉnh ngay sau blackout.
+6. Qua cổng sáng thì mở mắt tại marker E06_WAKE_SAFE trong vùng liên thông R01 của map mới. Một đốm sáng thật ở marker E06_WISP phía trước, cao khoảng 1,35 m trên sàn, tắt dần. Hai marker được đặt và kiểm tra sau khi chốt kiến trúc; không dùng tọa độ nhà cũ. Nếu đã nhìn thấy nó, xuất hiện suy nghĩ “CÓ VẺ KHÔNG PHẢI MƠ...”. Trả L01 chuẩn, A13 giảm nhanh, giữ toàn bộ đồ và tiến trình; đánh dấu E06_DONE sau khi trở lại an toàn. Nhịp đánh/choáng trước chạy vẫn khoảng tám đến mười hai giây; toàn cụm có thêm đoạn NG, không còn tỉnh ngay sau blackout.
 
 ### Kết quả và trường hợp biên
 

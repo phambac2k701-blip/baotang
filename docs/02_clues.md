@@ -1,5 +1,7 @@
 # Ảnh giấy và vật phẩm của bảo tàng
 
+> Cập nhật kiến trúc 13/10/2026: các mã R dưới đây là vùng chức năng của gameplay, không quyết định mặt bằng hoặc tọa độ nhà. Nguồn dựng hiện hành là ZIP và [kế hoạch kiến trúc thô Blender](08_ke_hoach_kien_truc_tho_blender.md). Việc ánh xạ item/event sang map mới thực hiện sau khi chốt kiến trúc; hiện chỉ dựng kiến trúc thô, chưa triển khai gameplay.
+
 Tài liệu clues · Thiết kế phiên bản 4 · 12 tháng 10 năm 2026
 
 Danh mục này mô tả nội dung nhìn thấy, chữ in, mặt sau, khung và cách thu thập của từng nguồn thông tin. Những chi tiết có đáp án phải được đưa vào asset, không chỉ nằm trong lời mô tả thiết kế. Mã nguồn là căn cứ chung cho flow, kiến trúc, âm thanh và event.
@@ -344,7 +346,7 @@ Ví dụ I09: preview “Phiếu bảo dưỡng có ghi chú về hai máy ảnh
 
 Ngôn ngữ chung dùng tiếng Việt rõ, trung lập, hơi bí ẩn ở chi tiết quan sát. Có thể nói “Khung cũ có vài vết xước.”; không nói “Bức tranh đang che giấu đáp án.” Không thay chữ trên giấy bằng một câu kể dài về lịch sử bảo tàng. Không dùng câu chắc chắn mà nhân vật chưa có căn cứ biết.
 
-Các bảng ở file 06 có cột Xem và hành động chứa cả yêu cầu kỹ thuật, mã và điều kiện. Chúng không phải lời preview để copy thẳng. Dùng bảng dưới làm lời preview; dùng Block 13 của file 06/file 02 để dựng chữ và hình thực tế. Lời giải ở file 01/05 chỉ là dữ liệu thiết kế, không in trên item nếu không được quy định.
+Dùng bảng dưới làm lời preview; dùng các mục mô tả nguồn trong chính file này để dựng chữ và hình thực tế. Ghi chú kỹ thuật, mã và điều kiện không phải lời preview để copy thẳng. Lời giải ở file 01/05 chỉ là dữ liệu thiết kế, không in trên item nếu không được quy định.
 
 ### Preview cho toàn bộ nguồn đã đặt
 
@@ -394,4 +396,4 @@ Các bảng ở file 06 có cột Xem và hành động chứa cả yêu cầu k
 
 Preview không bỏ khả năng người chơi tự thấy chữ trên asset: nhãn R08 nằm đúng trên đáy khi xoay; năm trên ảnh vẫn hiện trên viền. Tách preview chỉ ngăn hệ thống tự diễn giải hoặc đưa lời giải trước khi người chơi quan sát. Khi Xem nguồn phải mở cả mặt hình/giấy, không chỉ hiện một câu preview rồi giấu nguồn.
 
-Preview prop G/PX/ENV dùng các mô tả khách quan ở file 06. Ngoại lệ cần thay rõ: G53 “Một hộp kim loại có ba hàng nhãn.”; G61 “Bốn vòng số và một tay gạt.”; G62 “Khay nhỏ bên khung cửa.”; G68 “Một hốc trưng bày có kính.”; DRAFT-CODE-TERMINAL “Máy đọc thẻ kiểm kê có màn hình và nút điều khiển.” Không hiện “môđun dự trữ”, “nguồn thứ 19”, “đáp án 3581”, “prototype” hoặc tên engine trong UI người chơi. Các câu này chỉ thuộc ghi chú developer.
+Các prop chưa thuộc danh mục nguồn phải có preview khách quan khi được thiết kế lại trên map mới. Các ví dụ ngôn ngữ có thể giữ: “Một hộp kim loại có ba hàng nhãn.”; “Bốn vòng số và một tay gạt.”; “Khay nhỏ bên khung cửa.”; “Một hốc trưng bày có kính.”; “Máy đọc thẻ kiểm kê có màn hình và nút điều khiển.” Không suy ra vị trí prop từ bản kiến trúc cũ. Không hiện “môđun dự trữ”, “nguồn thứ 19”, “đáp án 3581”, “prototype” hoặc tên engine trong UI người chơi. Các câu này chỉ thuộc ghi chú developer.

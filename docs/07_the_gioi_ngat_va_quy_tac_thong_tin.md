@@ -1,6 +1,8 @@
 # Thế giới khi ngất và quy tắc thông tin cho người chơi
 
-Cập nhật thiết kế ngày 12 tháng 10 năm 2026. File này bổ sung nhánh E06 của bản hiện tại và phân biệt mô tả preview với nội dung manh mối. Nhà vẫn theo file 06, nguồn vẫn theo file 02. AI dựng nhà trước, thêm scene truy đuổi riêng sau; không phải sửa mặt bằng để tạo thế giới này.
+> Cập nhật kiến trúc 13/10/2026: các mã R dưới đây là vùng chức năng của gameplay, không quyết định mặt bằng hoặc tọa độ nhà. Nguồn dựng hiện hành là ZIP và [kế hoạch kiến trúc thô Blender](08_ke_hoach_kien_truc_tho_blender.md). Việc ánh xạ item/event sang map mới thực hiện sau khi chốt kiến trúc; hiện chỉ dựng kiến trúc thô, chưa triển khai gameplay.
+
+Cập nhật thiết kế ngày 12 tháng 10 năm 2026. File này bổ sung nhánh E06 của bản hiện tại và phân biệt mô tả preview với nội dung manh mối. Kiến trúc nhà dùng ZIP và kế hoạch Blender mới; nguồn thông tin vẫn theo file 02. Scene truy đuổi là công việc gameplay về sau, không thuộc giai đoạn kiến trúc thô hiện tại.
 
 ## Block 01 Chốt vị trí trong mạch truyện
 
@@ -26,7 +28,7 @@ Tọa độ riêng `(x,s,y)`: x trái/phải, s tiến về trước, y độ ca
 | NG-DECOR-01 đến 06 | Sáu plane màu, đặt ngoài viền ở s=48,96,144,192,240,288; luân phiên hai phía | Mảng màu/ảnh trừu tượng, không chữ hoặc manh mối mới |
 | NG-CHASER | Một capsule tối cao 2,2 m, bán kính 0,35; ở sau người chơi | Bám tiến độ chạy, không điều hướng trong bảo tàng |
 | NG-PORTAL | Khung hai trụ và thanh trên tại s=300, rộng trong 5,6 m, cao 3,2 m; plane sáng bên trong | Đi qua từ bất kỳ làn nào để trở lại thực tại |
-| FX-E06-WISP | Sphere đường kính 0,08 m trong R01, vị trí (u=4,9;v=9,0;h=1,35) | Chỉ hiện lúc tỉnh sau đoạn chạy; không nhặt, không nguồn |
+| FX-E06-WISP | Sphere đường kính 0,08 m trong vùng liên thông R01, đặt theo marker E06_WISP trên map mới | Chỉ hiện lúc tỉnh sau đoạn chạy; không nhặt, không nguồn |
 
 NG-CHASER dùng capsule/khối bóng trong bản đầu, không cần khuôn mặt, rig đánh hay AI tìm đường. Vật cản là box/cylinder theo ba loại ở Block 03. Không thêm đồ tương tác hoặc mở balo để đọc trong lúc chạy. Khung, portal và nền dùng vật liệu màu/self-lit cơ bản ở draft; âm thanh và chiếu sáng trình diễn triển khai sau theo file 04.
 
@@ -84,9 +86,9 @@ Một lượt sạch mất khoảng 60 giây chạy, cộng chuyển cảnh và 
 
 ## Block 05 Trở lại thực tại và đốm sáng
 
-Qua s=300 khi ở trong khung NG-PORTAL: vô hiệu input chạy/va chạm, dừng chaser, fade theo plane sáng trong khoảng 0,6–1,0 giây. Không tăng sáng toàn màn hình nhiều lần. Ghi DREAM_PORTAL_CROSSED rồi chuyển scene về bảo tàng tại điểm R01 `(u=4,9;v=9,7)`, sàn tầng hai cao 3,6 m, nhìn về nam. Đây là điểm trống đã có trong file 06, không spawn về giường hay về vị trí cú đánh nguy hiểm.
+Qua s=300 khi ở trong khung NG-PORTAL: vô hiệu input chạy/va chạm, dừng chaser, fade theo plane sáng trong khoảng 0,6–1,0 giây. Không tăng sáng toàn màn hình nhiều lần. Ghi DREAM_PORTAL_CROSSED rồi chuyển scene về bảo tàng tại marker E06_WAKE_SAFE trong vùng liên thông R01 của tầng hai. Vị trí và hướng nhìn được đặt sau khi chốt kiến trúc mới; dùng cao độ tầng hai 3,65 m và kiểm tra đường đi. Không dùng tọa độ nhà cũ, không spawn về giường hay về vị trí cú đánh nguy hiểm.
 
-Mở mắt bằng một lớp che mí/giảm mờ khoảng 0,8 giây; ưu tiên góc nhìn phía trước trong nhịp này. FX-E06-WISP hiện tại `(4,9;9,0;1,35)`, cùng tông trắng ngà/ấm của cổng. Nó là vật hiển thị thật trong scene bảo tàng, không chỉ hình trong giấc mơ. Giữ hiện khoảng 0,8–1,0 giây sau khi mắt mở, rồi co/fade về 0 trong khoảng 0,4–0,6 giây. Collider tắt; không vật phẩm bên dưới, không cửa hay texture bằng chứng bị đổi.
+Mở mắt bằng một lớp che mí/giảm mờ khoảng 0,8 giây; ưu tiên góc nhìn phía trước trong nhịp này. FX-E06-WISP hiện tại marker E06_WISP phía trước hướng nhìn từ E06_WAKE_SAFE, cao khoảng 1,35 m trên sàn và cùng tông trắng ngà/ấm của cổng. Hai marker phải được kiểm tra góc nhìn và va chạm trên map mới; tọa độ cụ thể chưa chốt. Nó là vật hiển thị thật trong scene bảo tàng, không chỉ hình trong giấc mơ. Giữ hiện khoảng 0,8–1,0 giây sau khi mắt mở, rồi co/fade về 0 trong khoảng 0,4–0,6 giây. Collider tắt; không vật phẩm bên dưới, không cửa hay texture bằng chứng bị đổi.
 
 Nếu player đã thấy đốm sáng trong nhịp tỉnh, khi nó tắt hiện dòng suy nghĩ đúng “CÓ VẺ KHÔNG PHẢI MƠ...” trong khoảng 2 giây. Mỗi lần chỉ một câu. Nếu bỏ toàn bộ cảnh tỉnh hoặc không thấy đốm, không khẳng định bằng dòng này; vẫn tiếp tục bình thường. Không ép quay camera tìm đốm sau khi đã trả điều khiển. Không yêu cầu chụp đúng đốm để ghi nhận.
 
@@ -122,7 +124,7 @@ Ví dụ I09: preview “Phiếu bảo dưỡng có ghi chú về hai máy ảnh
 
 Ngôn ngữ chung dùng tiếng Việt rõ, trung lập, hơi bí ẩn ở chi tiết quan sát. Có thể nói “Khung cũ có vài vết xước.”; không nói “Bức tranh đang che giấu đáp án.” Không thay chữ trên giấy bằng một câu kể dài về lịch sử bảo tàng. Không dùng câu chắc chắn mà nhân vật chưa có căn cứ biết.
 
-Các bảng ở file 06 có cột Xem và hành động chứa cả yêu cầu kỹ thuật, mã và điều kiện. Chúng không phải lời preview để copy thẳng. Dùng bảng dưới làm lời preview; dùng Block 13 của file 06/file 02 để dựng chữ và hình thực tế. Lời giải ở file 01/05 chỉ là dữ liệu thiết kế, không in trên item nếu không được quy định.
+Dùng bảng dưới và danh mục file 02 làm lời preview; dùng nội dung nguồn tại file 02 để dựng chữ và hình thực tế. Ghi chú kỹ thuật, mã và điều kiện không phải lời preview để copy thẳng. Lời giải ở file 01/05 chỉ là dữ liệu thiết kế, không in trên item nếu không được quy định.
 
 ### Preview cho toàn bộ nguồn đã đặt
 
@@ -172,11 +174,11 @@ Các bảng ở file 06 có cột Xem và hành động chứa cả yêu cầu k
 
 Preview không bỏ khả năng người chơi tự thấy chữ trên asset: nhãn R08 nằm đúng trên đáy khi xoay; năm trên ảnh vẫn hiện trên viền. Tách preview chỉ ngăn hệ thống tự diễn giải hoặc đưa lời giải trước khi người chơi quan sát. Khi Xem nguồn phải mở cả mặt hình/giấy, không chỉ hiện một câu preview rồi giấu nguồn.
 
-Preview prop G/PX/ENV dùng các mô tả khách quan ở file 06. Ngoại lệ cần thay rõ: G53 “Một hộp kim loại có ba hàng nhãn.”; G61 “Bốn vòng số và một tay gạt.”; G62 “Khay nhỏ bên khung cửa.”; G68 “Một hốc trưng bày có kính.”; DRAFT-CODE-TERMINAL “Máy đọc thẻ kiểm kê có màn hình và nút điều khiển.” Không hiện “môđun dự trữ”, “nguồn thứ 19”, “đáp án 3581”, “prototype” hoặc tên engine trong UI người chơi. Các câu này chỉ thuộc ghi chú developer.
+Các prop chưa thuộc danh mục nguồn phải có preview khách quan khi được thiết kế lại trên map mới. Các ví dụ ngôn ngữ có thể giữ: “Một hộp kim loại có ba hàng nhãn.”; “Bốn vòng số và một tay gạt.”; “Khay nhỏ bên khung cửa.”; “Một hốc trưng bày có kính.”; “Máy đọc thẻ kiểm kê có màn hình và nút điều khiển.” Không suy ra vị trí prop từ bản kiến trúc cũ. Không hiện “môđun dự trữ”, “nguồn thứ 19”, “đáp án 3581”, “prototype” hoặc tên engine trong UI người chơi. Các câu này chỉ thuộc ghi chú developer.
 
 ## Block 08 Giao AI xây và kiểm tra
 
-Nhà và items dùng file 06; toàn bộ lời preview dùng Block 07 file này. Scene NG làm sau khi đường chính và balo chạy được. Các shape của NG đặt cố định theo bảng; chưa cần asset nhân vật, âm hoặc shader cầu kỳ. Không dùng bộ luật auto-run cho người chơi trong bảo tàng; controller của hai scene là hai chế độ tách nhau và khi tỉnh phải trả chế độ đi lại.
+Kiến trúc nhà dùng ZIP và kế hoạch Blender mới. Items lấy nội dung từ file 02; vị trí cụ thể chưa ánh xạ sang map mới. Toàn bộ lời preview dùng Block 07 file này. Scene NG làm sau khi đường chính và balo chạy được, ở giai đoạn gameplay về sau. Các shape của NG đặt cố định theo bảng; chưa cần asset nhân vật, âm hoặc shader cầu kỳ. Không dùng bộ luật auto-run cho người chơi trong bảo tàng; controller của hai scene là hai chế độ tách nhau và khi tỉnh phải trả chế độ đi lại.
 
 | Kiểm | Kết quả bắt buộc |
 | --- | --- |

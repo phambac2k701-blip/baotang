@@ -1,5 +1,7 @@
 # Bảo tàng và chiếc chìa khóa
 
+> Cập nhật kiến trúc 13/10/2026: các mã R dưới đây là vùng chức năng của gameplay, không quyết định mặt bằng hoặc tọa độ nhà. Nguồn dựng hiện hành là ZIP và [kế hoạch kiến trúc thô Blender](08_ke_hoach_kien_truc_tho_blender.md). Việc ánh xạ item/event sang map mới thực hiện sau khi chốt kiến trúc; hiện chỉ dựng kiến trúc thô, chưa triển khai gameplay.
+
 Tài liệu flow · Thiết kế phiên bản 4 · 12 tháng 10 năm 2026
 
 Người chơi tỉnh dậy trong phòng trực của một bảo tàng bỏ hoang, tìm chiếc chìa khóa được vẽ trên tờ hướng dẫn rồi trở lại mở giường để xuống lối thoát. Tài liệu này chốt diễn biến, đáp án, điều kiện tiến triển và cách xử lý những người tìm được vị trí lối ra quá sớm. Mã clues, phòng và event được dùng thống nhất trong bốn tài liệu còn lại.
